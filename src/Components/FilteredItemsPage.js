@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../CSS/Global.css';
 import Image from './Image.js';
+import Image2 from './Image2.js';
 
 
 class FilteredItemsPage extends Component {
@@ -34,14 +35,14 @@ class FilteredItemsPage extends Component {
     let anArr = []
     for(let i = 0; i < this.state.items.length; i++){
       anArr = anArr.concat((<div className ="column">
-      <Image src = {this.state.items[i].src}/>
+      <Image2 src = {this.state.items[i].src}/>
       <div>Price: {this.state.items[i].cost}</div>
       
       </div>))
     }
     return ( 
       <div>
-      <div className = "parentOfColumns">
+      <div className = "parentOfColumns2">
         {anArr}
       </div>
       
