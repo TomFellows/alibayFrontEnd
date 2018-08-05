@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import PopUpWindow from './Components/PopUpWindow.js'
-import BuyItem from './Components/BuyItem.js'
+import PageContent from './Components/PageContent.js'
 import Header from './Components/Header.js'
 
 class App extends Component {
@@ -24,23 +23,25 @@ class App extends Component {
 
   render() {
 
-    let popUp = ''
+   /* let popUp = ''
 
     
     if (this.state.popUp === 'BuyItem') {
       popUp = (<PopUpWindow removeSelf={this.deletePopUp}><BuyItem/></PopUpWindow>)
     }
     
+    <div>
+      
+        <button onClick={this.popUp} value='BuyItem'>Buy item</button>
+        {popUp}
+      </div>*/
 
     return (
       <div>
       <Header/>
+      <PageContent/>
       
-      <div>
-      
-        <button onClick={this.popUp} value='BuyItem'>Buy item</button>
-        {popUp}
-      </div>
+     
       </div>
     );
   }
