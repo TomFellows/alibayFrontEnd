@@ -45,12 +45,14 @@ class AccountMenu extends Component {
         buttons = (<div>Logged in as {this.props.username}
                   <button>Account</button>
                   <button value='Logout' onClick={this.props.logout}>Log out</button>
+                  <button>Post Add</button>
           </div>)
 
         } else {
         buttons = (<div>
                       <button onClick={this.popUp} value='Login'>Login</button>
                       <button onClick={this.popUp} value='CreateAccount'>Create Account</button>
+                      <button>Post Add</button>
                       </div>)
         
         }
@@ -66,7 +68,7 @@ class AccountMenu extends Component {
     
             
             {buttons}
-            <button>Post Add</button>
+            
             {popUp}
           
           </div>
