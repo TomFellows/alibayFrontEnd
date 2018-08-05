@@ -6,25 +6,33 @@ import Image from './Image.js';
 class HighlightArea extends Component {
     constructor(props){
         super(props)
+        this.state = {items: [{itemId: 1, cost: 100, src: "/glasses1.png"},
+        {itemId: 2, cost: 50, src: "/glasses2.png"},
+        {itemId: 3, cost: 70, src: "/glasses3.png"},
+        {itemId: 4, cost: 130, src: "/glasses4.png"}]}
+       
     }
+    
   render() {
     return ( 
       <div className = "parentOfColumns">
       
+     
+   
+
         <div className ="column">
-        <Image src = "/glasses1.png"/>
+        <Image src = {this.state.items[0].src}/>
         
-          
         </div>
 
         <div className="column">
-        <Image src = "/chanel.jpg"/>
+        <Image src = {this.state.items[1].src}/>
        
-        <Image src = "/bvlgari.jpg"/>
+        
         </div>
    
         <div className="column">
-        <Image src = "/rayban.jpg"/>
+        <Image src = {this.state.items[2].src}/>
         </div>
 
        
@@ -35,10 +43,6 @@ class HighlightArea extends Component {
 }
 
 
-// class Column extends Component {
-//   render() {
-//     return <div className="column">{...this.props.children}</div>
-//   }
-// }
+
 
 export default HighlightArea;

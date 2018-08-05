@@ -19,9 +19,9 @@ class Menu extends Component {
 
                 <div className="parentOfHeaders">
 
-                    <div className = "menu" className = "logo">
+                    {/* <div className = "menu" className = "logo">
                         <Image src = "logo.png"/>
-                    </div>
+                    </div> */}
 
                     <div className = "menu">
                     <div class="dropdown">
