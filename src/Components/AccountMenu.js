@@ -26,11 +26,32 @@ class AccountMenu extends Component {
         let popUp = ''
     
         if (this.state.popUp === 'Login') {
-          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><Login removeSelf={this.deletePopUp}/></PopUpWindow>)
+          popUp = (<PopUpWindow removeSelf={this.deletePopUp}>
+          <Login login={this.props.login} removeSelf={this.deletePopUp}/>
+          </PopUpWindow>)
         }
     
         if (this.state.popUp === 'CreateAccount') {
-          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><CreateAccount removeSelf={this.deletePopUp}/></PopUpWindow>)
+          popUp = (<PopUpWindow removeSelf={this.deletePopUp}>
+          <CreateAccount createAccount={this.props.createAccount}removeSelf={this.deletePopUp}/>
+          </PopUpWindow>)
+        }
+
+        let buttons
+        
+        if (this.props.loggedIn === true) {
+        
+        buttons = (<div>Logged in as {this.props.username}
+                  <button>Account</button>
+                  <button value='Logout' onClick={this.props.logout}>Log out</button>
+          </div>)
+
+        } else {
+        buttons = (<div>
+                      <button onClick={this.popUp} value='Login'>Login</button>
+                      <button onClick={this.popUp} value='CreateAccount'>Create Account</button>
+                      </div>)
+        
         }
         
     
@@ -39,8 +60,7 @@ class AccountMenu extends Component {
           
     
             
-            <button onClick={this.popUp} value='Login'>Login</button>
-            <button onClick={this.popUp} value='CreateAccount'>Create Account</button>
+            {buttons}
             {popUp}
           
           </div>

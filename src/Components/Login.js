@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 import '../CSS/Login.css'
 
 
@@ -26,30 +27,20 @@ class Login extends Component {
  
 
  
-     async handleSubmit(event) {
-         event.preventDefault()
- 
-         let response = await fetch('/login', {
-             method: 'POST',
-             credentials: 'same-origin',
-             body: JSON.stringify({
-                 username: this.state.username, 
-                 password: this.state.password})
-         })
- 
-         response = response.text()
- 
-         let parsedBody = JSON.parse(response)
- 
+     handleSubmit(event) {
+        event.preventDefault()
+
+        
+        let response = this.props.login(this.state.username, this.state.password)
+
+        //The returned object has the .reason and .success properties
+
+        alert(response.reason)
+
+        if (response.success === true) {
+        this.props.removeSelf()
+            }
          
- 
-         if (parsedBody.success === true) {
-             alert('Logged in')
-             this.props.removeSelf()
-         } else {
-            alert(parsedBody.reason)
-         }
- 
      }
 
 

@@ -8,36 +8,81 @@ class App extends Component {
   constructor () {
     super() 
 
-    this.state = {popUp: false}
+    this.login = this.login.bind(this)
+    this.createAccount = this.createAccount.bind(this)
+    this.logout = this.logout.bind(this)
+
+    this.state = {username: '', loggedIn: false}
   }
 
-  popUp = (event) => {
-    this.setState({popUp: event.target.value})
+  async login (username, password) {
+
+    let response = await fetch('/login', {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: JSON.stringify({
+          username: username, 
+          password: password})
+  })
+
+  response = response.text()
+
+  let parsedBody = JSON.parse(response)
+
+  if (parsedBody.success === true) {
+      
+      this.setState({username: username, loggedIn: true})
+      
+  } 
+     return(parsedBody) //Returns the body object, with .success and .reason properties
+
   }
 
-  deletePopUp = () => {
-    this.setState({popUp: false})
+  async logout () {
+
+    let response = await fetch('/logout', {
+      method: 'POST',
+      body: JSON.stringify({
+          credentials: 'same-origin'
+        })
+    })
+      response = response.text()
+    
+      let parsedBody = JSON.parse(response)
+
+     if (parsedBody.success === true) { 
+    
+      this.setState({username: '', loggedIn: false})
+      }
   }
 
+  async createAccount (username, password, confirmPassword) {
+    let response = await fetch('/createAccount', {
+        method: 'POST',
+        body: JSON.stringify({
+            username: username, 
+            password: password,
+            confirmPassword: confirmPassword})
+    })
+
+    response = response.text()
+
+    let parsedBody = JSON.parse(response)
+
+    
+    return(parsedBody) //Returns the body object, with .success and .reason properties
+  }
 
   render() {
 
-   /* let popUp = ''
-
-    
-    if (this.state.popUp === 'BuyItem') {
-      popUp = (<PopUpWindow removeSelf={this.deletePopUp}><BuyItem/></PopUpWindow>)
-    }
-    
-    <div>
-      
-        <button onClick={this.popUp} value='BuyItem'>Buy item</button>
-        {popUp}
-      </div>*/
-
     return (
       <div>
-      <Header/>
+      <Header 
+      username={this.state.username} 
+      loggedIn={this.state.loggedIn} 
+      login={this.login} 
+      logout={this.logout} 
+      createAccount={this.createAccount}/>
       <PageContent/>
       
      
@@ -46,4 +91,7 @@ class App extends Component {
   }
 }
 
+
 export default App;
+
+

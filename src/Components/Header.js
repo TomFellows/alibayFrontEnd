@@ -11,7 +11,13 @@ class Header extends Component {
         return (<div>
         <div className='topRow'>
         <h1 className='title'>Spectacle</h1>
-        <AccountMenu className='accountMenu'/></div>
+        <AccountMenu 
+        username={this.props.username} 
+        loggedIn={this.props.loggedIn} 
+        login={this.props.login} 
+        logout={this.props.logout} 
+        createAccount={this.props.createAccount}
+        className='accountMenu'/></div>
         <Menu/>
         <Breadcrumb/>
 

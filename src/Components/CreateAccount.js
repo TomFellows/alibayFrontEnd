@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../CSS/CreateAccount.css'
 
 
+
 class CreateAccount extends Component {
 
    constructor () {
@@ -31,24 +32,16 @@ class CreateAccount extends Component {
     async handleSubmit(event) {
         event.preventDefault()
 
-        let response = await fetch('/createAccount', {
-            method: 'POST',
-            body: JSON.stringify({
-                username: this.state.username, 
-                password: this.state.password,
-                confirmPassword: this.state.confirmPassword})
-        })
+       
+        let response = this.props.createAccount(this.state.username, this.state.password, this.state.confirmPassword)
 
-        response = response.text()
+        //The returned object has the .reason and .success properties
 
-        let parsedBody = JSON.parse(response)
+        alert(response.reason)
 
-        alert(parsedBody.reason)
-
-        if (parsedBody.success === true) {
-            this.props.removeSelf()
+        if (response.success === true) {
+        this.props.removeSelf()
         }
-
     }
 
 
