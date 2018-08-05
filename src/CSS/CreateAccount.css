@@ -1,0 +1,26 @@
+.createAccount {
+    padding: 1em;
+    line-height: 1.3;
+    text-align: left
+
+}
+
+h4 {
+    line-height: 1
+}
+
+h3 {
+    line-height: 1
+}
+
+.usernamePassword div{
+    display: block;
+    margin-top: 2px;
+    
+    
+}
+
+.usernamePassword div div{
+    display: flex;
+    justify-content: space-between;
+}

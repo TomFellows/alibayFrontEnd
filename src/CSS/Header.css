@@ -1,0 +1,17 @@
+.header {
+    width: 100%;
+}
+
+.title {
+    width: 50%;
+    margin: 0
+}
+
+.topRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accountMenu {
+    float: right;
+}
