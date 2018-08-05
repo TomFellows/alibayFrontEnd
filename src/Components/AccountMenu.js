@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PopUpWindow from './PopUpWindow.js'
 import Login from './Login.js'
 import CreateAccount from './CreateAccount.js'
+import PostAd from './PostAd.js'
 import '../CSS/AccountMenu.css'
 
 class AccountMenu extends Component {
@@ -53,6 +54,10 @@ class AccountMenu extends Component {
                       </div>)
         
         }
+
+        if (this.state.popUp === 'PostAd') {
+          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><PostAd removeSelf={this.deletePopUp} /></PopUpWindow>)
+        }
         
     
         return (
@@ -61,6 +66,7 @@ class AccountMenu extends Component {
     
             
             {buttons}
+            <button>Post Add</button>
             {popUp}
           
           </div>
