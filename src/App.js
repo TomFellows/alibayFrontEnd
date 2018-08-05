@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import './CSS/Global.css';
 import PageContent from './Components/PageContent.js'
 import Header from './Components/Header.js'
 
