@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 // Item Details Page
 // itemId: "g1234"
-
+// obj and seller are used for test purposes only
 let seller = {}
 
 let obj = {"success":true,
@@ -45,7 +45,7 @@ class itemDetails extends Component {
   }
 
   buyNow(){
-    // Bring up payment option
+    // Bring up payment option, need to watch video guide
     let bod = JSON.stringify({"itemdID": "g1234", "userId": "o40r9k"})
     
     fetch('/buyItem', {

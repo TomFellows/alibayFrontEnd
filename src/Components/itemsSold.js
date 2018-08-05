@@ -4,8 +4,7 @@ import React, { Component } from 'react';
 
 // Items Sold
 // userId: "o40r9k"
-
-// let itemsSold = []
+// obj is for test purposes only
 
 let obj = {"success":true,
 "itemsSold":[{
