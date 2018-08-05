@@ -26,11 +26,11 @@ class AccountMenu extends Component {
         let popUp = ''
     
         if (this.state.popUp === 'Login') {
-          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><Login/></PopUpWindow>)
+          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><Login removeSelf={this.deletePopUp}/></PopUpWindow>)
         }
     
         if (this.state.popUp === 'CreateAccount') {
-          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><CreateAccount/></PopUpWindow>)
+          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><CreateAccount removeSelf={this.deletePopUp}/></PopUpWindow>)
         }
         
     
