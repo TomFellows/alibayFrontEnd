@@ -44,6 +44,37 @@ class itemDetails extends Component {
     })
   }
 
+  buyNow(){
+    // Bring up payment option
+    let bod = JSON.stringify({"itemdID": "g1234", "userId": "o40r9k"})
+    
+    fetch('/buyItem', {
+      method: 'POST',
+      body: bod
+    })
+      .then(x => x.text())
+      .then(responseBody => {
+        let parsedBody = JSON.parse(responseBody)
+        if(parsedBody.success === false){
+          return (<div> {parsedBody.reason} </div>)
+        }
+        }
+      )
+      .then( fetch('/sellItem', {
+        method: 'POST',
+        body: bod
+      })
+        .then(x => x.text())
+        .then(responseBody => {
+          let parsedBody = JSON.parse(responseBody)
+          if(parsedBody.success === true){
+            return (<div> Enjoy your purchase! </div>)
+          }
+        }
+        )
+      )
+  }
+
 
   renderItems(item) {
     return (
@@ -63,6 +94,7 @@ class itemDetails extends Component {
             </ul>
           </div>
         </div>
+        <button onClick={this.buyNow}> Buy now! </button>
       </div>
     )
   }
