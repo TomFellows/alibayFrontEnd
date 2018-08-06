@@ -41,17 +41,18 @@ class FilteredItemsPage extends Component {
 
     priceSortUp(evt){
       evt.preventDefault();
-    
-
         let someArr = this.state.items
         someArr.sort(function(a, b){return a.cost - b.cost});
         this.setState({items: someArr})   
   }
+      
+
+      
   render() {
     let anArr = []
     for(let i = 0; i < this.state.items.length; i++){
       anArr = anArr.concat((<div className ="column">
-      <Image2 src = {this.state.items[i].src}/>
+      <Image2  src = {this.state.items[i].src}/>
       <div>Price: {this.state.items[i].cost}</div>
       
       </div>))

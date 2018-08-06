@@ -10,7 +10,7 @@ class Header extends Component {
         
         return (<div>
         <div className='topRow'>
-        <h1 className='title'>Spectacle</h1>
+        <h1 className='title'></h1>
         <AccountMenu 
         username={this.props.username} 
         loggedIn={this.props.loggedIn} 
