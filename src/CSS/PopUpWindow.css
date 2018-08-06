@@ -60,9 +60,9 @@
     from{
         background-color: #333333
     }
-    50%{
+    /* 50%{
         background-color: #666666
-    }
+    } */
     to{
         background-color: #333333
     }
