@@ -4,7 +4,7 @@ import {withRouter} from 'react-router';
 import PopUpWindow from './PopUpWindow.js'
 import Login from './Login.js'
 import CreateAccount from './CreateAccount.js'
-import BuyItem from './BuyItem.js'
+
 import PostAd from './PostAd.js'
 import '../CSS/AccountMenu.css'
 
@@ -47,10 +47,10 @@ class AccountMenuBare extends Component {
           </PopUpWindow>)
         }
 
-        if (this.state.popUp === 'BuyItem') {
-          popUp = (<PopUpWindow removeSelf={this.deletePopUp}>
-          <BuyItem removeSelf={this.deletePopUp}/>
-          </PopUpWindow>)
+        
+
+        if (this.state.popUp === 'PostAd') {
+          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><PostAd removeSelf={this.deletePopUp} /></PopUpWindow>)
         }
 
         let buttons
@@ -60,22 +60,20 @@ class AccountMenuBare extends Component {
         buttons = (<div><div id='username'>Logged in as {this.props.username}&nbsp;</div>
                   <button onClick={this.accountDetails}>Account</button>
                   <button value='Logout' onClick={this.props.logout}>Log out</button>
-                  <button>Post Ad</button>
+                  <button onClick={this.popUp} value='PostAd'>Post Ad</button>
           </div>)
 
         } else {
         buttons = (<div className = "buttons">
                       <button onClick={this.popUp} value='Login'>Login</button>
                       <button onClick={this.popUp} value='CreateAccount'>Create Account</button>
-                      <button>Post Ad</button>
-                      <button onClick={this.popUp} value='BuyItem'>Buy Item TEST</button>
+                      <button onClick={this.popUp} value='PostAd'>Post Ad</button>
+                      
                       </div>)
         
         }
 
-        if (this.state.popUp === 'PostAd') {
-          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><PostAd removeSelf={this.deletePopUp} /></PopUpWindow>)
-        }
+        
         
     
         return (

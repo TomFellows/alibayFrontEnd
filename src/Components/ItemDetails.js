@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PopUpWindow from './PopUpWindow.js'
+import BuyItem from './BuyItem.js'
 
 
 
@@ -17,10 +19,12 @@ class itemDetails extends Component {
     super(props);
     this.state = {
         itemDetails: {},
-        sellerDetails: {}
+        sellerDetails: {},
+        popUp: false
     }
     
     this.getItemInfo = this.getItemInfo.bind(this)
+    this.buyNow = this.buyNow.bind(this)
   }
   componentDidMount() {
     this.getItemInfo();
@@ -45,9 +49,18 @@ class itemDetails extends Component {
     })
   }
 
+ 
+
+  deletePopUp = () => {
+    this.setState({popUp: false})
+  }
+
   buyNow(){
+
+    this.setState({popUp: 'BuyItem'})
+
     // Bring up payment option, need to watch video guide
-    let bod = JSON.stringify({"itemdID": "g1234", "userId": "o40r9k"})
+    /*let bod = JSON.stringify({"itemdID": "g1234", "userId": "o40r9k"})
     
     fetch('/buyItem', {
       method: 'POST',
@@ -73,11 +86,23 @@ class itemDetails extends Component {
           }
         }
         )
-      )
+   
+      )*/
   }
 
 
+
+
   renderItems(item) {
+
+    let popUp = ''
+
+    if (this.state.popUp === 'BuyItem') {
+      popUp = (<PopUpWindow removeSelf={this.deletePopUp}>
+      <BuyItem removeSelf={this.deletePopUp}/>
+      </PopUpWindow>)
+    }
+
     return (
       <div >
         <h3> {item.itemName} </h3>
@@ -96,6 +121,7 @@ class itemDetails extends Component {
           </div>
         </div>
         <button onClick={this.buyNow}> Buy now! </button>
+        {popUp}
       </div>
     )
   }
