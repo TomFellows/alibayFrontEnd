@@ -8,9 +8,9 @@ class PageContent extends Component {
     render () {
 
         return (<div>
-            {/* <Carousel/>
-            <HighlightArea/> */}
-            <FilteredItemsPage/>
+             <Carousel/>
+            <HighlightArea/> 
+            {/* <FilteredItemsPage/> */}
         </div>)
     }
 }
