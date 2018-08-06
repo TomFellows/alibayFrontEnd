@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-button{
+.menuButtons{
     margin-left: 5px;
     background-color: black;
     color: white;

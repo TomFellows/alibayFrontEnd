@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-
 import '../CSS/Login.css'
+
+import '../CSS/PopUpWindow.css'
 
 
 class Login extends Component {
@@ -12,14 +13,32 @@ class Login extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleUsernameChange = this.handleUsernameChange.bind(this)
-        
+        this.clearUserField = this.clearUserField.bind(this)
+        this.clearPasswordField = this.clearPasswordField.bind(this)
  
-        this.state = {username: '', password: ''}
+        this.state = {count2: 0,count: 0, username: 'Enter Username', password: "somepass"}
   }
     
      handleUsernameChange(event) {
+         
          this.setState({username: event.target.value})
      }
+
+     clearUserField(){
+         if(this.state.count === 0){
+         this.setState({username: ""});
+         
+         }
+         this.setState({count: 1})
+     }
+
+     clearPasswordField(){
+        if(this.state.count2 === 0){
+        this.setState({password: ""});
+        
+        }
+        this.setState({count2: 1})
+    }
  
      handlePasswordChange(event) {
          this.setState({password: event.target.value})
@@ -47,11 +66,23 @@ class Login extends Component {
 
     render () {
         return (<div className='login' onSubmit={this.handleSubmit}>
-            <h3>Login :</h3>
+            
+            <h3 className = "loginHeading"><br/>USER LOGIN<br/><br/></h3>
             <form className='usernamePassword'>
-            <div><div>Username:&nbsp; <input type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div></div>
-            <div><div>Password:&nbsp; <input type='Password' value={this.state.password} onChange={this.handlePasswordChange}/></div></div>
-            <input type='submit'/>
+            <br/>
+            <div >
+            {/* <div className = "fields" ><div >Username:&nbsp; <input className = "input" type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div></div>
+           
+            <div className = "fields" ><div >Password:&nbsp; <input className = "input" type='Password' value={this.state.password} onChange={this.handlePasswordChange}/></div></div> */}
+
+            <div className = "fields" > <input onClick = {this.clearUserField} className = "input" type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div>
+            
+           <div className = "fields" > <input onClick = {this.clearPasswordField} className = "input" type='Password' value={this.state.password} onChange={this.handlePasswordChange}/></div>
+            </div>
+            <br/>
+            <input className = "submitButton" type='submit'/>
+            <br/>
+            <br/>
         </form></div>)
     }
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import '../CSS/CreateAccount.css'
 
+import '../CSS/PopUpWindow.css'
+
 
 
 class CreateAccount extends Component {
@@ -13,8 +15,11 @@ class CreateAccount extends Component {
        this.handlePasswordChange = this.handlePasswordChange.bind(this)
        this.handleUsernameChange = this.handleUsernameChange.bind(this)
        this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this)
+       this.clearUserField = this.clearUserField.bind(this)
+       this.clearPasswordField = this.clearPasswordField.bind(this)
+       this.clearPasswordField2 = this.clearPasswordField2.bind(this)
 
-       this.state = {username: '', password: '', confirmPassword: ''}
+       this.state = {count3: 0, count2: 0, count: 0, username: 'Enter Username', password: 'aaaaaa', confirmPassword: 'aaaaaa'}
  }
    
     handleUsernameChange(event) {
@@ -28,6 +33,31 @@ class CreateAccount extends Component {
     handleConfirmPasswordChange(event) {
         this.setState({confirmPassword: event.target.value})
     }
+
+    clearUserField(){
+        if(this.state.count === 0){
+        this.setState({username: ""});
+        
+        }
+        this.setState({count: 1})
+    }
+
+    clearPasswordField(){
+       if(this.state.count2 === 0){
+       this.setState({password: ""});
+       
+       }
+       this.setState({count2: 1})
+   }
+
+
+   clearPasswordField2(){
+    if(this.state.count3 === 0){
+    this.setState({confirmPassword: ""});
+    
+    }
+    this.setState({count3: 1})
+}
 
     async handleSubmit(event) {
         event.preventDefault()
@@ -47,15 +77,36 @@ class CreateAccount extends Component {
 
 
     render () {
-        return (<div className='createAccount'>
-            <h3>Create account : </h3>
+        return (<div className='login'>
+            <h3 className = "loginHeading"><br/>CREATE ACCOUNT<br/><br/> </h3>
             <form className='usernamePassword' onSubmit={this.handleSubmit}>
-            <div><div>Username:&nbsp; <input type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div></div>
-            <div><div>Password:&nbsp; <input type='Password' value={this.state.password} onChange={this.handlePasswordChange}/></div></div>
-            <div><div>Confirm password:&nbsp; <input type='Password' value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/></div></div>
-            <input type='submit'/>
+            <br/>
+            <div>
+            <div className = "fields"> <input className = "input" onClick = {this.clearUserField} type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div>
+            <div className = "fields"><input className = "input" onClick = {this.clearPasswordField} type='Password' value={this.state.password} onChange={this.handlePasswordChange}/></div>
+            <div className = "fields"> <input className = "input" onClick = {this.clearPasswordField2} type='Password' value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/></div>
+            </div>
+            <br/>
+           
+            <input className = "submitButton" type='submit'/>
         </form></div>)
     }
 }
 
 export default CreateAccount
+
+// return (<div className='login' onSubmit={this.handleSubmit}>
+            
+// <h3 className = "loginHeading"><br/>USER LOGIN<br/><br/></h3>
+// <form className='usernamePassword'>
+// <br/>
+// <div >
+
+// <div className = "fields" > <input onClick = {this.clearField} className = "input" type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div>
+// <div className = "fields" > <input className = "input" type='Password' value={this.state.password} onChange={this.handlePasswordChange}/></div>
+// </div>
+// <br/>
+// <input className = "submitButton" type='submit'/>
+// <br/>
+// <br/>
+// </form></div>)
