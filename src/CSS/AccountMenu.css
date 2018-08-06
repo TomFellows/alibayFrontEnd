@@ -3,7 +3,12 @@
     padding: 0;
 }
 
-button{
+#username {
+    color: white;
+    display: inline;
+}
+
+.accountMenu button{
     margin-left: 5px;
     background-color: black;
     color: white;
@@ -11,6 +16,8 @@ button{
     border: transparent;
     
 }
+
+
 
 button:focus {outline:0}
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import '../CSS/Global.css';
 import Image from './Image.js';
 import HighlightArea from './HighlightArea.js'
@@ -22,7 +23,7 @@ class Menu extends Component {
                     {/* <div className = "menu" className = "logo">
                         <Image src = "logo.png"/>
                     </div> */}
-
+                    
                     <div className = "menu">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,6 +33,7 @@ class Menu extends Component {
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
+                            <Link class="dropdown-item" to='/items'>Filtered Items</Link>
                         </div>
                     </div>
                     </div>

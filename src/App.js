@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {BrowserRouter} from 'react-router-dom'
 import PageContent from './Components/PageContent.js'
 import Header from './Components/Header.js'
 
@@ -12,7 +12,7 @@ class App extends Component {
     this.createAccount = this.createAccount.bind(this)
     this.logout = this.logout.bind(this)
 
-    this.state = {username: '', loggedIn: false}
+    this.state = {username: 'Anton', loggedIn: true}
   }
 
   async login (username, password) {
@@ -76,6 +76,7 @@ class App extends Component {
   render() {
 
     return (
+      <BrowserRouter>
       <div>
       <Header 
       username={this.state.username} 
@@ -87,6 +88,7 @@ class App extends Component {
       
      
       </div>
+      </BrowserRouter>
     );
   }
 }

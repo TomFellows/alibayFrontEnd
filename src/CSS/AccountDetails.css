@@ -1,8 +1,10 @@
-.buyitem {
+.accountDetails {
     padding: 1em;
     line-height: 1;
-    text-align: left
-
+    
+    
+    width: 30%;
+    margin: 0 auto;
 }
 
 h4 {
@@ -13,15 +15,9 @@ h3 {
     line-height: 1
 }
 
-textarea {
-    width: 100%;
-    margin-bottom: 1em;
-    resize: none;
-    
-}
 
 /*Each Text + input combo in the form*/
-.purchaseInfo div {
+.addressInfo div {
     display: flex;
     justify-content: space-between;
 }
