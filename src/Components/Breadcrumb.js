@@ -1,12 +1,41 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import '../CSS/Breadcrumb.css'
 
-class Breadcrumb extends Component {
+class BreadcrumbBare extends Component {
 
     render() {
 
-        return (<div className='breadcrumb'>Vendors > Jacques420 > Super cool glasses</div>)
+        let currentURL = this.props.location.pathname
+
+        let breadcrumb = '';
+
+        if (currentURL === '/') {
+            breadcrumb = 'Home'
+        } else {
+
+            let arr = currentURL.split('/').slice();
+
+            arr = arr.map(item => {
+                if (item === "accountDetails") {return 'Account details'}
+                if (item === "itemdetails") {return 'Item details'}
+                if (item === 'items') {return 'Items'}
+                if (item === 'seller') {return 'Seller'}
+
+                return item
+            })
+
+            arr.splice(0, 1);
+
+            breadcrumb = arr.join(' > ')
+        }
+
+
+
+        return (<div className='breadcrumb'>{breadcrumb}</div>)
     }
 }
+
+let Breadcrumb = withRouter(BreadcrumbBare)
 
 export default Breadcrumb

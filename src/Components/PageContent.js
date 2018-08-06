@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import ItemDetails from './ItemDetails.js'
 
 import Carousel from './Carousel.js';
 import HighlightArea from './HighlightArea.js'
@@ -16,6 +17,8 @@ class PageContent extends Component {
         this.renderMainPage = this.renderMainPage.bind(this)
         this.renderFilteredItems = this.renderFilteredItems.bind(this)
         this.renderAccountDetails = this.renderAccountDetails.bind(this)
+        this.renderItemDetails = this.renderItemDetails.bind(this)
+        this.renderSeller = this.renderSeller.bind(this)
     }
 
     renderMainPage () {
@@ -31,8 +34,14 @@ class PageContent extends Component {
     renderFilteredItems () {
 
         return (<div>
-<<<<<<< HEAD
             <FilteredItemsPage/>
+            </div>)
+
+    }
+
+    renderItemDetails () {
+        return (<div>
+            <ItemDetails/>
             </div>)
 
     }
@@ -44,6 +53,21 @@ class PageContent extends Component {
 
     }
 
+    renderSeller (routerData) {
+
+        let renderedSeller = routerData.match.params.name
+        
+        
+        let seller = this.props.users.filter(item => {
+            return item.name === renderedSeller.toString()})[0]
+       
+
+
+        
+        return (<FilteredItemsPage seller={seller} key={seller.userId}/>)
+    }
+    
+
 
 
     render () {
@@ -52,16 +76,12 @@ class PageContent extends Component {
         <Route exact={true} path='/' render={this.renderMainPage} />
         <Route exact={true} path='/items' render={this.renderFilteredItems} />
         <Route exact={true} path='/accountdetails' render={this.renderAccountDetails} />
+        <Route exact={true} path='/itemdetails' render={this.renderItemDetails} />
+        <Route exact={true} path='/seller/:name' render={this.renderSeller}/>
         
         </div>
         )
         
-=======
-             <Carousel/>
-            <HighlightArea/> 
-            {/* <FilteredItemsPage/> */}
-        </div>)
->>>>>>> e04d76ff00aed80ff1c50a51f9ae70c63d0714b7
     }
 }
 

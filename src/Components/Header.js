@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Menu from './Menu.js'
 import Breadcrumb from './Breadcrumb.js';
 import AccountMenu from './AccountMenu.js'
@@ -10,7 +11,7 @@ class Header extends Component {
         
         return (<div>
         <div className='topRow'>
-        <h1 className='title'>Spectacle</h1>
+        <Link to='/'><h1 className='title'>Spectacle</h1></Link>
         <AccountMenu 
         username={this.props.username} 
         loggedIn={this.props.loggedIn} 
@@ -18,8 +19,8 @@ class Header extends Component {
         logout={this.props.logout} 
         createAccount={this.props.createAccount}
         className='accountMenu'/></div>
-        <Menu/>
-        <Breadcrumb/>
+        <Menu users={this.props.users}/>
+        <Breadcrumb users={this.props.users}/>
 
 
 

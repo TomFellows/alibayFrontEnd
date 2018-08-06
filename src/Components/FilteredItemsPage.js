@@ -7,6 +7,8 @@ import Image2 from './Image2.js';
 class FilteredItemsPage extends Component {
     constructor(props){
         super(props)
+
+        if (!this.props.seller) {
         this.state = {items: [{itemId: 1, cost: 100, src: "/glasses1.png", color: "red"},
                               {itemId: 2, cost: 50, src: "/glasses2.png", color: "black"},
                               {itemId: 3, cost: 70, src: "/glasses3.png", color: "blue"},
@@ -14,9 +16,22 @@ class FilteredItemsPage extends Component {
                               {itemId: 5, cost: 65, src: "/glasses5.png", color: "black"},
                               {itemId: 6, cost: 90, src: "/glasses6.png", color: "red"},
                               {itemId: 7, cost: 40, src: "/glasses7.png", color: "blue"}]}
+        } else {
+
+        this.state = {items: this.props.seller.items}
+
+         }
+
+
+
         this.priceSortDown = this.priceSortDown.bind(this)
         this.priceSortUp = this.priceSortUp.bind(this)
         this.colorSort = this.colorSort.bind(this)
+      
+    }
+
+    componentDidUpdate() {
+      
     }
 
     colorSort(evt){
