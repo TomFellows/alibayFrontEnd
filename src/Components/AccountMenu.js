@@ -49,10 +49,10 @@ class AccountMenu extends Component {
           </div>)
 
         } else {
-        buttons = (<div>
+        buttons = (<div className = "buttons">
                       <button onClick={this.popUp} value='Login'>Login</button>
                       <button onClick={this.popUp} value='CreateAccount'>Create Account</button>
-                      <button>Post Add</button>
+                      <button>Post Ad</button>
                       </div>)
         
         }
