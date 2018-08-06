@@ -15,29 +15,23 @@ class HighlightArea extends Component {
     
   render() {
     return ( 
+      
       <div className = "parentOfColumns">
       
-     
-   
-
         <div className ="column">
-        <Image src = {this.state.items[0].src}/>
-        
+        <Image src = {this.state.items[0].src}/> 
         </div>
 
         <div className="column">
-        <Image src = {this.state.items[1].src}/>
-       
-        
+        <Image src = {this.state.items[1].src}/> 
         </div>
    
         <div className="column">
         <Image src = {this.state.items[2].src}/>
         </div>
 
-       
-
       </div>
+    
     );
   }
 }

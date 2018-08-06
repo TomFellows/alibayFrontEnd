@@ -20,6 +20,8 @@
   justify-content: space-around;
   flex-flow: row wrap;
   max-width: 100vw;
+  font-size: 30pt;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .img{
@@ -38,7 +40,7 @@
   color: white;
   flex: 1;
   text-align: center;
-  font-family: Yatra One
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .loginOrCreate{
@@ -47,7 +49,7 @@
   color: white;
   flex: 1;
   text-align: right;
-  font-family: Yatra One
+  font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 .carousel{
@@ -73,5 +75,7 @@
   background-color: black
 }
 
-
+.highlightHeadings{
+  font-size: 30pt
+}
 

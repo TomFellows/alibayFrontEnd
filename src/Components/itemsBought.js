@@ -43,6 +43,7 @@ class itemsBought extends Component {
 
     fetch('/itemsBought', {
       method: 'POST',
+      credentials: 'same-origin',
       body: bod
     })
     .then(x => x.text())

@@ -3,12 +3,16 @@
     padding: 0;
 }
 
+<<<<<<< HEAD
 #username {
     color: white;
     display: inline;
 }
 
 .accountMenu button{
+=======
+.menuButtons{
+>>>>>>> e04d76ff00aed80ff1c50a51f9ae70c63d0714b7
     margin-left: 5px;
     background-color: black;
     color: white;

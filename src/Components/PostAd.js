@@ -50,6 +50,7 @@ class PostAd extends Component {
 
      fetch('/putItemForSale', {
        method: 'POST',
+       credentials: 'same-origin',
        body: bod
      })
      .then(x => x.text())

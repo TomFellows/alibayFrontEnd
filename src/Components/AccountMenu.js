@@ -60,15 +60,21 @@ class AccountMenuBare extends Component {
         buttons = (<div><div id='username'>Logged in as {this.props.username}&nbsp;</div>
                   <button onClick={this.accountDetails}>Account</button>
                   <button value='Logout' onClick={this.props.logout}>Log out</button>
-                  <button>Post Add</button>
+                  <button>Post Ad</button>
           </div>)
 
         } else {
         buttons = (<div className = "buttons">
+<<<<<<< HEAD
                       <button onClick={this.popUp} value='Login'>Login</button>
                       <button onClick={this.popUp} value='CreateAccount'>Create Account</button>
                       <button>Post Ad</button>
                       <button onClick={this.popUp} value='BuyItem'>Buy Item TEST</button>
+=======
+                      <button className= "menuButtons" onClick={this.popUp} value='Login'>Login</button>
+                      <button className= "menuButtons" onClick={this.popUp} value='CreateAccount'>Create Account</button>
+                      <button className= "menuButtons" >Post Ad</button>
+>>>>>>> e04d76ff00aed80ff1c50a51f9ae70c63d0714b7
                       </div>)
         
         }
