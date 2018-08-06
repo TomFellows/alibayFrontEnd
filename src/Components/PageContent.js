@@ -31,7 +31,6 @@ class PageContent extends Component {
     renderFilteredItems () {
 
         return (<div>
-<<<<<<< HEAD
             <FilteredItemsPage/>
             </div>)
 
@@ -56,12 +55,6 @@ class PageContent extends Component {
         </div>
         )
         
-=======
-             <Carousel/>
-            <HighlightArea/> 
-            {/* <FilteredItemsPage/> */}
-        </div>)
->>>>>>> e04d76ff00aed80ff1c50a51f9ae70c63d0714b7
     }
 }
 

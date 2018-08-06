@@ -58,22 +58,45 @@ class FilteredItemsPage extends Component {
     }
     return ( 
       <div>
+        <br/>
+        <br/>
+       
+
+        <div class="dropdown">
+        
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            SORT BY
+            </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button className="filterButtons" onClick={this.priceSortDown} class="dropdown-item" type="button">Descending price</button>
+            <button className="filterButtons" onClick={this.priceSortUp} class="dropdown-item" type="button">Ascending price</button>
+            <button className="filterButtons" onClick={this.colorSort} class="dropdown-item" type="button">Color</button>
+          </div>
+        </div>
+
+
+
       <div className = "parentOfColumns2">
         {anArr}
       </div>
       
-      <div>
-      <button onClick = {this.priceSortDown}>Sort by descending price</button>
-      <button onClick = {this.priceSortUp}>Sort by ascending price</button>
-      <button onClick = {this.colorSort}>Sort by color</button>
-      </div>
+   
       </div>
 
     );
   }
 }
 
-
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button className = "filterButtons" onClick = {this.priceSortDown} class="dropdown-item" type="button">Descending price</button>
+    <button className = "filterButtons" onClick = {this.priceSortUp} class="dropdown-item" type="button">Ascending price</button>
+    <button className = "filterButtons" onClick = {this.colorSort} class="dropdown-item" type="button">Color</button>
+  </div>
+</div>
 
 
 export default FilteredItemsPage;
