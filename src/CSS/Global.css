@@ -4,6 +4,8 @@
   background-color: #dddddd;
 
 }
+
+
 .filterButtons{
   position: relative;
   left: 65vw;
@@ -52,6 +54,10 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
+.menuBackground{
+  background-color: black;
+}
+
 .img{
   width: 100%;
   display: block;
@@ -68,7 +74,8 @@
   color: white;
   flex: 1;
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 15px;
 }
 
 .loginOrCreate{
@@ -89,13 +96,19 @@
 
 .parentOfHeaders{
   display: flex;
+  max-width: 60vw;
 }
 
 #dropdownMenuButton{
   color: white;
   font-size: 25pt;
   background-color: black;
-  border: transparent
+  border: none;
+  outline: none;
+}
+
+#dropdownMenuButton:hover{
+color: #ee0000;
 }
 
 .logo{

@@ -19,7 +19,7 @@ class Menu extends Component {
 
 
         return (
-            <div>
+            <div className = "menuBackground">
 
                
 

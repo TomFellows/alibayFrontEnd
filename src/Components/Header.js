@@ -11,7 +11,8 @@ class Header extends Component {
         
         return (<div>
         <div className='topRow'>
-        <Link to='/'><h1 className='title'>Spectacle</h1></Link>
+        {/* <Link to='/'><h1 className='title'>Spectacle</h1></Link> */}
+        <Link to='/'><img className = "logo2" src = '/logo2.png'></img></Link>
         <AccountMenu 
         username={this.props.username} 
         loggedIn={this.props.loggedIn} 

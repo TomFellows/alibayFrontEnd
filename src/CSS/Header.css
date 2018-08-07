@@ -12,10 +12,14 @@
 .topRow {
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: white;
     
 }
 
 .accountMenu {
     float: right;
+}
+
+.logo2{
+    width: 9vw;
 }
