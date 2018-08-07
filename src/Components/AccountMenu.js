@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import {withRouter} from 'react-router';
 
+import {Link} from 'react-router-dom';
+
 import PopUpWindow from './PopUpWindow.js'
 import Login from './Login.js'
 import CreateAccount from './CreateAccount.js'
@@ -26,7 +28,7 @@ class AccountMenuBare extends Component {
       }
 
       accountDetails () {
-        this.props.history.push('/accountDetails')
+        this.props.history.push('/accountdetails')
       }
       
     
@@ -56,11 +58,26 @@ class AccountMenuBare extends Component {
         let buttons
         
         if (this.props.loggedIn === true) {
-        
-        buttons = (<div><div id='username'>Logged in as {this.props.username}&nbsp;</div>
-                  <button className = "accountMenuButtons" onClick={this.accountDetails}>Account</button>
+        //Everything is wrapped in a div with the dropdown class to align everything even though not all the buttons have a dropdown menu
+        buttons = (<div className='accountMenu'>
+                    <div class="dropdown">
+                    <div id='username'>Logged in as {this.props.username}</div>
+                    </div>
+            
+                  <div class="dropdown">
+                  <button className="accountMenuButtons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                 
+                            <Link class="dropdown-item" to='/accountdetails'>Account details</Link>
+                            <Link class="dropdown-item" to='/accountdetails'>Purchases history</Link>
+                            <Link class="dropdown-item" to='/accountdetails'>Sales history</Link>
+                        </div>
+                  </div>
+                  <div class="dropdown">
                   <button className = "accountMenuButtons" value='Logout' onClick={this.props.logout}>Log out</button>
                   <button className = "accountMenuButtons" onClick={this.popUp} value='PostAd'>Post Ad</button>
+                  </div>
           </div>)
 
         } else {

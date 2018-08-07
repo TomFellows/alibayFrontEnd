@@ -17,7 +17,7 @@ class BreadcrumbBare extends Component {
             let arr = currentURL.split('/').slice();
 
             arr = arr.map(item => {
-                if (item === "accountDetails") {return 'Account details'}
+                if (item === "accountdetails") {return 'Account details'}
                 if (item === "itemdetails") {return 'Item details'}
                 if (item === 'items') {return 'Items'}
                 if (item === 'seller') {return 'Seller'}

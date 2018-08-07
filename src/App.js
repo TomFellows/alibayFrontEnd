@@ -43,7 +43,7 @@ class App extends Component {
     this.createAccount = this.createAccount.bind(this)
     this.logout = this.logout.bind(this)
 
-    this.state = {username: '', loggedIn: false}
+    this.state = {username: 'Anton', loggedIn: true}
   }
 
   async login (username, password) {
