@@ -31,7 +31,7 @@ class itemDetails extends Component {
   }
 
   getItemInfo() {
-    let bod = JSON.stringify({"itemId": "g1234"}) //JSON.stringify({userId: this.props.userId})
+    let bod = JSON.stringify({"itemId": "g1234"}) //JSON.stringify({itemId: this.props.itemId})
 
     fetch('/itemDetails', {
       method: 'POST',
@@ -40,7 +40,7 @@ class itemDetails extends Component {
     })
     .then(x => x.text())
     .then(responseBody => {
-      let parsedBody = obj //JSON.parse(responseBody)
+      let parsedBody = JSON.parse(responseBody)
       if(parsedBody.success === true) {
         let item = parsedBody.item
         seller = parsedBody.seller
@@ -115,7 +115,7 @@ class itemDetails extends Component {
               <li> {item.itemDescription} </li>
               <li> {item.itemPrice} </li>
               <li> Quantity remaining: {item.numberRemaining} </li>
-              <li> Seller: <span style={{color: "green"}}> {this.state.sellerDetails.userName} </span> </li>
+              <li> Seller: <span style={{color: "green"}}> {item.sellerId} </span> </li>
               <li> Style tags: {item.keyword} </li>
             </ul>
           </div>
