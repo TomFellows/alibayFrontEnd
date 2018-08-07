@@ -56,9 +56,11 @@ class App extends Component {
           password: password})
   })
 
-  response = response.text()
+  response = await response.text()
 
   let parsedBody = JSON.parse(response)
+
+  alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
 
   if (parsedBody.success === true) {
       
@@ -77,9 +79,11 @@ class App extends Component {
           credentials: 'same-origin'
         })
     })
-      response = response.text()
+      response = await response.text()
     
       let parsedBody = JSON.parse(response)
+
+      alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
 
      if (parsedBody.success === true) { 
     
@@ -96,10 +100,11 @@ class App extends Component {
             confirmPassword: confirmPassword})
     })
 
-    response = response.text()
+    response = await response.text()
 
     let parsedBody = JSON.parse(response)
 
+    alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
     
     return(parsedBody) //Returns the body object, with .success and .reason properties
   }

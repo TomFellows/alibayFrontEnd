@@ -41,7 +41,7 @@ class CreateAccount extends Component {
 
         //The returned object has the .reason and .success properties
 
-        alert(response.reason)
+        
 
         if (response.success === true) {
         this.props.removeSelf()
