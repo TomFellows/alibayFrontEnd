@@ -42,8 +42,17 @@ class App extends Component {
     this.login = this.login.bind(this)
     this.createAccount = this.createAccount.bind(this)
     this.logout = this.logout.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
 
     this.state = {username: 'Anton', loggedIn: true}
+  }
+
+  componentDidMount () {
+    fetch('/cookie', {
+      method: 'GET',
+      credentials: 'same-origin'
+    })
+
   }
 
   async login (username, password) {

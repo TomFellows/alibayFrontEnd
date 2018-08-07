@@ -31,11 +31,11 @@ class Login extends Component {
  
 
  
-     handleSubmit(event) {
+     async handleSubmit(event) {
         event.preventDefault()
 
         
-        let response = this.props.login(this.state.username, this.state.password)
+        let response = await this.props.login(this.state.username, this.state.password)
 
         //The returned object has the .reason and .success properties
 

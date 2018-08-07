@@ -37,7 +37,7 @@ class CreateAccount extends Component {
         event.preventDefault()
 
        
-        let response = this.props.createAccount(this.state.username, this.state.password, this.state.confirmPassword)
+        let response = await this.props.createAccount(this.state.username, this.state.password, this.state.confirmPassword)
 
         //The returned object has the .reason and .success properties
 
