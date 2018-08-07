@@ -6,6 +6,9 @@ import Carousel from './Carousel.js';
 import HighlightArea from './HighlightArea.js'
 import FilteredItemsPage from './FilteredItemsPage.js';
 import AccountDetails from './AccountDetails.js';
+import ItemsBought from './ItemsBought.js';
+import ItemsSold from './ItemsSold.js';
+
 
 class PageContent extends Component {
 
@@ -53,6 +56,20 @@ class PageContent extends Component {
 
     }
 
+    renderItemsBought () {
+        return (<div>
+            <ItemsBought/>
+            </div>)
+
+    }
+
+    renderItemsSold () {
+        return (<div>
+            <ItemsSold/>
+            </div>)
+
+    }
+
     renderSeller (routerData) {
 
         let renderedSeller = routerData.match.params.name
@@ -76,6 +93,9 @@ class PageContent extends Component {
         <Route exact={true} path='/' render={this.renderMainPage} />
         <Route exact={true} path='/items' render={this.renderFilteredItems} />
         <Route exact={true} path='/accountdetails' render={this.renderAccountDetails} />
+        <Route exact={true} path='/itemsbought' render={this.renderItemsBought} />
+        <Route exact={true} path='/itemssold' render={this.renderItemsSold} />
+
         <Route exact={true} path='/itemdetails' render={this.renderItemDetails} />
         <Route exact={true} path='/seller/:name' render={this.renderSeller}/>
         

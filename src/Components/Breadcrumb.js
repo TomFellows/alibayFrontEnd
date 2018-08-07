@@ -21,6 +21,8 @@ class BreadcrumbBare extends Component {
                 if (item === "itemdetails") {return 'Item details'}
                 if (item === 'items') {return 'Items'}
                 if (item === 'seller') {return 'Seller'}
+                if (item === 'itemssold') {return 'Sales history'}
+                if (item === 'itemsbought') {return 'Purchases history'}
 
                 return item
             })

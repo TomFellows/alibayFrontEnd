@@ -19,7 +19,7 @@ let obj = {"success":true,
 }]}
 
 
-class itemsSold extends Component {
+class ItemsSold extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -89,5 +89,5 @@ class itemsSold extends Component {
   }
 }
 
-export default itemsSold;
+export default ItemsSold;
 

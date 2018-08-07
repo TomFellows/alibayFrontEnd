@@ -70,8 +70,8 @@ class AccountMenuBare extends Component {
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                 
                             <Link class="dropdown-item" to='/accountdetails'>Account details</Link>
-                            <Link class="dropdown-item" to='/accountdetails'>Purchases history</Link>
-                            <Link class="dropdown-item" to='/accountdetails'>Sales history</Link>
+                            <Link class="dropdown-item" to='/itemsbought'>Purchases history</Link>
+                            <Link class="dropdown-item" to='/itemssold'>Sales history</Link>
                         </div>
                   </div>
                   <div class="dropdown">

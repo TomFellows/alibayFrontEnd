@@ -18,7 +18,7 @@ let obj = `{"success":true,
               "keyword":"round"}]}`
 
 
-class itemsBought extends Component {
+class ItemsBought extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -89,4 +89,4 @@ class itemsBought extends Component {
   }
 }
 
-export default itemsBought;
+export default ItemsBought;
