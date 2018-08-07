@@ -40,7 +40,8 @@ class itemDetails extends Component {
     })
     .then(x => x.text())
     .then(responseBody => {
-      let parsedBody = JSON.parse(responseBody)
+      let parsedBody = obj;
+      // JSON.parse(responseBody)
       if(parsedBody.success === true) {
         let item = parsedBody.item
         seller = parsedBody.seller

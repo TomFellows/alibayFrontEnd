@@ -16,7 +16,19 @@
   background-color: white;
   color: black;
   border-radius: 5px;
- 
+  
+  font-size: 20pt;
+  position: relative;
+  left: 80vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+
+}
+#dropdownMenu2:hover{
+  background-color:black;
+  color: white;
+  border-radius: 5px;
+  
   font-size: 20pt;
   position: relative;
   left: 80vw;
@@ -108,7 +120,9 @@
 }
 
 #dropdownMenuButton:hover{
-color: #ee0000;
+color: black;
+background-color: white;
+font-size: 26pt;
 }
 
 .logo{
