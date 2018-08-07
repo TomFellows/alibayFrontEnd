@@ -106,22 +106,24 @@ class itemDetails extends Component {
     return (
       <div >
         <h3> {item.itemName} </h3>
-        <div style={{display:"flex"}}>
-          <img src={item.itemImage} style={{height: "400px", width: "600px"}} alt={item.itemName} />
-        
-          <div>
-            <h3> Item Details </h3>
-            <ul>
-              <li> {item.itemDescription} </li>
-              <li> {item.itemPrice} </li>
-              <li> Quantity remaining: {item.numberRemaining} </li>
-              <li> Seller: <span style={{color: "green"}}> {item.sellerId} </span> </li>
-              <li> Style tags: {item.keyword} </li>
-            </ul>
+        <div>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
+            <img src={item.itemImage} style={{ height: "400px", width: "600px" }} alt={item.itemName} />
+
+            <div>
+              <ul>
+                <li> {item.itemDescription} </li>
+                <li> {item.itemPrice} </li>
+                <li> Quantity remaining: {item.numberRemaining} </li>
+                <li> Seller: <span style={{ color: "green" }}> {item.sellerId} </span> </li>
+                <li> Style tags: {item.keyword} </li>
+              </ul>
+              <button onClick={this.buyNow}> Buy now! </button>
+              {popUp}
+            </div>
           </div>
         </div>
-        <button onClick={this.buyNow}> Buy now! </button>
-        {popUp}
+
       </div>
     )
   }
