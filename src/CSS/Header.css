@@ -21,5 +21,18 @@
 }
 
 .logo2{
+    position: relative;
+    animation: logo 3s infinite linear;
+    animation-iteration-count: 1;
     width: 9vw;
+
+}
+
+@keyframes logo{
+    from{
+        left:400px;
+    }
+    to{
+        left:0px;
+    }
 }
