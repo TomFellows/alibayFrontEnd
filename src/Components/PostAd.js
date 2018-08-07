@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 import '../CSS/PopUpWindow.css'
 
+function uploadFile(file) {
+  let filename = file.name;
+  let fileExtension = filename.split('.').pop();
+  fetch('/upics?ext=' + fileExtension,{method: "POST", body: file}) // 
+}
+
 class PostAd extends Component {
 
   constructor () {
@@ -15,6 +21,7 @@ class PostAd extends Component {
     this.handleKeywordsChange = this.handleKeywordsChange.bind(this)
     this.handlePriceChange = this.handlePriceChange.bind(this)
     this.handleQuantityChange = this.handleQuantityChange.bind(this)
+  
     
 }
   
@@ -69,23 +76,23 @@ class PostAd extends Component {
      })
    }
 
-   render () {
-       return (<div className='login'>
-           <h3 className='loginHeading'> <br/>Post an Ad: <br/><br/></h3>
-           <form onSubmit={this.handleSubmit} className='usernamePassword'> <br/>
-           <div className='fields'><input type='text' value={this.state.itemName} onChange={this.handleItemNameChange} placeholder="Item Name" className='input'  /></div>
-           <div className='fields'><input type='text' value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Description" className='input'  /></div>
-           <div className='fields'><input type='text' value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" className='input'  /></div>
-           <div className='fields'><input type='text' value={this.state.quantity} onChange={this.handleQuantityChange} placeholder="Quantity" className='input'  /></div>
-           <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
-           {
-             // Line to upload an image yourselves
-           }
-           <br/>
-           <input className='submitButton' type='submit'/>
-           <br/><br/>
-       </form></div>)
-   }
+  render() {
+    return (<div className='login'>
+      <h3 className='loginHeading'> <br />Post an Ad: <br /><br /></h3>
+      <form onSubmit={this.handleSubmit} className='usernamePassword'> <br />
+
+        <div className='fields'><input type='text' value={this.state.itemName} onChange={this.handleItemNameChange} placeholder="Item Name" className='input' /></div>
+        <div className='fields'><input type='text' value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Description" className='input' /></div>
+        <div className='fields'><input type='text' value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" className='input' /></div>
+        <div className='fields'><input type='text' value={this.state.quantity} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
+        <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
+        <input className='uploadFile' type="file" onChange={file => uploadFile(file.target.files[0])} /> 
+
+        <br />
+        <input className='submitButton' type='submit' />
+        <br /><br />
+      </form></div>)
+  }
 }
 
 export default PostAd;
