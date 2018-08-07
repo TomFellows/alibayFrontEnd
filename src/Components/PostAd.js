@@ -86,7 +86,7 @@ class PostAd extends Component {
         <div className='fields'><input type='text' value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.quantity} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
-        <input className='uploadFile' type="file" onChange={file => uploadFile(file.target.files[0])} /> 
+        <br/><input className='uploadFile' type="file" onChange={file => uploadFile(file.target.files[0])} /> 
 
         <br />
         <input className='submitButton' type='submit' />
