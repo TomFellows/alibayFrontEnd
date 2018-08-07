@@ -58,16 +58,16 @@ class AccountMenuBare extends Component {
         if (this.props.loggedIn === true) {
         
         buttons = (<div><div id='username'>Logged in as {this.props.username}&nbsp;</div>
-                  <button onClick={this.accountDetails}>Account</button>
-                  <button value='Logout' onClick={this.props.logout}>Log out</button>
-                  <button onClick={this.popUp} value='PostAd'>Post Ad</button>
+                  <button className = "accountMenuButtons" onClick={this.accountDetails}>Account</button>
+                  <button className = "accountMenuButtons" value='Logout' onClick={this.props.logout}>Log out</button>
+                  <button className = "accountMenuButtons" onClick={this.popUp} value='PostAd'>Post Ad</button>
           </div>)
 
         } else {
         buttons = (<div className = "buttons">
-                      <button onClick={this.popUp} value='Login'>Login</button>
-                      <button onClick={this.popUp} value='CreateAccount'>Create Account</button>
-                      <button onClick={this.popUp} value='PostAd'>Post Ad</button>
+                      <button className = "accountMenuButtons" onClick={this.popUp} value='Login'>Login</button>
+                      <button className = "accountMenuButtons" onClick={this.popUp} value='CreateAccount'>Create Account</button>
+                      <button className = "accountMenuButtons" onClick={this.popUp} value='PostAd'>Post Ad</button>
                       
                       </div>)
         
