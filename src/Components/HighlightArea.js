@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../CSS/Global.css';
 import Image from './Image.js';
-
+import ItemComponent from './ItemComponent.js'
 
 class HighlightArea extends Component {
     constructor(props){
@@ -31,7 +31,24 @@ class HighlightArea extends Component {
         </div>
 
       </div>
-    
+      /*
+      <div className="parentOfColumns">
+        <div className="column">
+        <ItemComponent src={this.state.items[0].itemImage}
+        </div>
+
+      <div className="parentOfColumns">
+        <div className="column">
+        <ItemComponent src={this.state.items[1].itemImage}
+        </div>
+      
+      <div className=parentOfColumns">
+        <div className="column">
+        <ItemComponent src={this.state.items[2].itemImage}
+        </div>
+
+      </div>
+      */
     );
   }
 }
