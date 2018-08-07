@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../CSS/Global.css';
 import Image from './Image.js';
 import Image2 from './Image2.js';
+import ItemComponent from './ItemComponent.js'
 
 
 class FilteredItemsPage extends Component {
@@ -68,10 +69,22 @@ class FilteredItemsPage extends Component {
     for(let i = 0; i < this.state.items.length; i++){
       anArr = anArr.concat((<div className ="column">
       <Image2  src = {this.state.items[i].src}/>
+      
       <div>Price: {this.state.items[i].cost}</div>
       
       </div>))
     }
+
+    /*
+      for(let i = 0; i < this.state.items.length; i++) {
+      anArr = anArr.concat((<div className="column">
+      <ItemComponent item={this.state.item[i]} /> 
+      <div> Price: {this.state.items[i].price} </div> 
+      </div>))
+      
+    }
+    */
+
     return ( 
       <div>
         <br/>
