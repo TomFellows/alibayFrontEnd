@@ -1,0 +1,13 @@
+.postAd {
+    text-align: left
+}
+
+.formField {
+display: flex;
+justify-content: space-between
+}
+
+.field {
+    display: flex;
+    justify-content: space-between
+}

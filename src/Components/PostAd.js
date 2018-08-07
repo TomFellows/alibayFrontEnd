@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import '../CSS/PopUpWindow.css'
+
 class PostAd extends Component {
 
   constructor () {
@@ -68,18 +70,20 @@ class PostAd extends Component {
    }
 
    render () {
-       return (<div className='createAd'>
-           <h3>Post an Ad: </h3>
-           <form className='createAd' onSubmit={this.handleSubmit}>
-           <div><div>Item:&nbsp; <input type='text' value={this.state.itemName} onChange={this.handleItemNameChange}/></div></div>
-           <div><div>Description:&nbsp; <input type='text' value={this.state.description} onChange={this.handleDescriptionChange}/></div></div>
-           <div><div>Price:&nbsp; <input type='text' value={this.state.price} onChange={this.handlePriceChange}/></div></div>
-           <div><div>Quantity:&nbsp; <input type='text' value={this.state.quantity} onChange={this.handleQuantityChange}/></div></div>
-           <div><div>Keywords:&nbsp; <input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange}/></div></div>
+       return (<div className='login'>
+           <h3 className='loginHeading'> <br/>Post an Ad: <br/><br/></h3>
+           <form onSubmit={this.handleSubmit} className='usernamePassword'> <br/>
+           <div className='fields'><input type='text' value={this.state.itemName} onChange={this.handleItemNameChange} placeholder="Item Name" className='input'  /></div>
+           <div className='fields'><input type='text' value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Description" className='input'  /></div>
+           <div className='fields'><input type='text' value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" className='input'  /></div>
+           <div className='fields'><input type='text' value={this.state.quantity} onChange={this.handleQuantityChange} placeholder="Quantity" className='input'  /></div>
+           <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
            {
              // Line to upload an image yourselves
            }
-           <input type='submit'/>
+           <br/>
+           <input className='submitButton' type='submit'/>
+           <br/><br/>
        </form></div>)
    }
 }
