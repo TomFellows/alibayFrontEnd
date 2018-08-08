@@ -84,14 +84,14 @@ class FilteredItemsPage extends Component {
       
 
           let someArr = this.state.items
-          someArr.sort(function(a, b){return b.cost - a.cost});
+          someArr.sort(function(a, b){return b.itemPrice - a.itemPrice});
           this.setState({items: someArr})   
     }
 
     priceSortUp(evt){
       evt.preventDefault();
         let someArr = this.state.items
-        someArr.sort(function(a, b){return a.cost - b.cost});
+        someArr.sort(function(a, b){return a.itemPrice - b.itemPrice});
         this.setState({items: someArr})   
   }
       
@@ -112,7 +112,6 @@ class FilteredItemsPage extends Component {
       for(let i = 0; i < this.state.items.length; i++) {
       anArr = anArr.concat((<div className="column">
       <ItemComponent item={this.state.items[i]} /> 
-      <div> Price: {this.state.items[i].itemPrice} </div> 
       </div>))
       
     }

@@ -8,7 +8,7 @@ class PostAd extends Component {
 
   constructor () {
     super()
-    this.state = {itemName: '', description: '', price: '', quantity: '', keywords: '', image: ''}
+    this.state = {itemName: '', itemDescription: '', itemPrice: 1, numberRemaining: '', keywords: '', itemImage: '', itemColor: ''}
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
@@ -16,6 +16,7 @@ class PostAd extends Component {
     this.handleKeywordsChange = this.handleKeywordsChange.bind(this)
     this.handlePriceChange = this.handlePriceChange.bind(this)
     this.handleQuantityChange = this.handleQuantityChange.bind(this)
+    this.handleColorChange = this.handleColorChange.bind(this)
     this.uploadFile = this.uploadFile.bind(this)
   
     
@@ -27,7 +28,8 @@ class PostAd extends Component {
       fetch('/upics?ext=' + fileExtension,{method: "POST", body: file})
       .then(response => response.text())
       .then(response =>{
-        this.setState({image: response})
+        console.log(response)
+        this.setState({itemImage: response})
 
       })
     }
@@ -37,16 +39,19 @@ class PostAd extends Component {
    }
 
    handleDescriptionChange(event) {
-       this.setState({description: event.target.value})
+       this.setState({itemDescription: event.target.value})
    }
 
    handlePriceChange(event) {
-       this.setState({price: event.target.value})
+       this.setState({itemPrice: event.target.value})
    }
 
    handleQuantityChange(event) {
-     this.setState({quantity: event.target.value})
+     this.setState({numberRemaining: event.target.value})
    }
+   handleColorChange(event) {
+    this.setState({itemColor: event.target.value})
+  }
    handleKeywordsChange(event) {
      this.setState({keywords: event.target.value})
    }
@@ -57,11 +62,11 @@ class PostAd extends Component {
      
      let bod = JSON.stringify({item: {
        itemName: this.state.itemName,
-       description: this.state.description,
-       price: "$" + this.state.price,
-       quantity: this.state.quantity,
+       itemDescription: this.state.itemDescription,
+       itemPrice: parseInt(this.state.itemPrice),
+      numberRemaining: this.state.numberRemaining,
        keywords: this.state.keywords,
-       image: this.state.image
+       itemImage: "/" + this.state.itemImage
      }})
 
      fetch('/putItemForSale', {
@@ -89,9 +94,10 @@ class PostAd extends Component {
       <form onSubmit={this.handleSubmit} className='usernamePassword'>
 
         <div className='fields'><input type='text' value={this.state.itemName} onChange={this.handleItemNameChange} placeholder="Item Name" className='input' /></div>
-        <div className='fields'><textarea rows='3' value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Description" className='input'/></div>
-        <div className='fields'><input type='text' value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" className='input' /></div>
-        <div className='fields'><input type='text' value={this.state.quantity} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
+        <div className='fields'><textarea rows='3' value={this.state.itemDescription} onChange={this.handleDescriptionChange} placeholder="Description" className='input'/></div>
+        <div className='fields'><input type='number' value={this.state.itemPrice} onChange={this.handlePriceChange} placeholder="Price" className='input' /></div>
+        <div className='fields'><input type='text' value={this.state.numberRemaining} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
+        <div className='fields'><input type='text' value={this.state.itemColor} onChange={this.handleColorChange} placeholder="Color" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
         <br/>Upload picture: <br/><input className='uploadFile' type="file" onChange={file => this.uploadFile(file.target.files[0])} /> <br/>
 

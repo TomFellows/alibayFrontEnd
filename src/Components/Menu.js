@@ -77,8 +77,12 @@ class Menu extends Component {
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </div>
-                    </div>
+                   
 
+                    </div>
+                    <div className = "menu">
+                    <input className = "searchbar" type = "search" placeholder = "Search..."/>
+                    </div>
                 
 
 

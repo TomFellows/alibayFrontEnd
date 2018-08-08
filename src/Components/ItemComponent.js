@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ItemDetails from './ItemDetails.js';
 import { BrowserRouter, Route } from 'react-router-dom'
+import '../CSS/ItemComponent.css'
+import '../CSS/Global.css';
 
 class ItemComponent extends Component {
 
@@ -30,8 +32,12 @@ class ItemComponent extends Component {
 
   render() {
     return (
+      <div className='itemComponent'>
       <div onClick={this.itemDetails} >
-        <img src={this.props.item.itemImage} style={{'width':'400px'}} className="img2"/>
+        <img src={this.props.item.itemImage} className="img2"/>
+      </div>
+      <div className='itemName'> {this.props.item.itemName}</div>
+      <div> Price: {this.props.item.itemPrice} </div> 
       </div>)
   }
 }
