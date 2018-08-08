@@ -112,7 +112,6 @@ class FilteredItemsPage extends Component {
       for(let i = 0; i < this.state.items.length; i++) {
       anArr = anArr.concat((<div className="column">
       <ItemComponent item={this.state.items[i]} /> 
-      <div> Price: {this.state.items[i].itemPrice} </div> 
       </div>))
       
     }

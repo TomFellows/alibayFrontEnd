@@ -1,0 +1,15 @@
+.itemComponent {
+    align-self: flex-end;
+    
+
+}
+
+div.itemComponent div {
+    display: block;
+    
+}
+
+.itemName {
+    font-weight: bold;
+    font-size: 18pt;
+}
