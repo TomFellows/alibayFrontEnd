@@ -19,7 +19,7 @@ class FilteredItemsPage extends Component {
                               {itemId: 7, cost: 40, src: "/glasses7.png", color: "blue"}]}
         } else {
 
-        this.state = {items: this.props.seller.items}
+        this.state = {items: []}
 
          }
 
@@ -31,9 +31,17 @@ class FilteredItemsPage extends Component {
       
     }
 
-    componentDidUpdate() {
-      
-    }
+    componentDidMount() {
+      let body = JSON.stringify(this.props.seller)
+      fetch('/itemsBySeller', {
+        method: 'POST',
+        body: body,
+        credentials: "same-origin"
+      }).then(x=>x.text())
+      .then(responseBody=>{
+        let parsedBody = JSON.parse(responseBody)
+        this.setState({items:parsedBody.itemsForSale})});
+      }
 
     colorSort(evt){
         evt.preventDefault();
@@ -68,9 +76,9 @@ class FilteredItemsPage extends Component {
     let anArr = []
     for(let i = 0; i < this.state.items.length; i++){
       anArr = anArr.concat((<div className ="column">
-      <Image2  src = {this.state.items[i].src}/>
+      <Image2  src = {this.state.items[i].itemImage}/>
       
-      <div>Price: {this.state.items[i].cost}</div>
+      <div>Price: {this.state.items[i].itemPrice}</div>
       
       </div>))
     }

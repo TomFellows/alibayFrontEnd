@@ -14,7 +14,7 @@ class Menu extends Component {
 
     render() {
 
-        let sellers = this.props.users.map(item => (<Link class="dropdown-item" to={'/seller/' + item.name}>{item.name}</Link>))
+        let sellers = this.props.users.map(item => (<Link class="dropdown-item" to={'/seller/' + item.username}>{item.username}</Link>))
 
 
 

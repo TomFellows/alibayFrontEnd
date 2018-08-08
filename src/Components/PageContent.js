@@ -72,11 +72,11 @@ class PageContent extends Component {
 
     renderSeller (routerData) {
 
-        let renderedSeller = routerData.match.params.name
+        let renderedSeller = routerData.match.params.username
         
         
         let seller = this.props.users.filter(item => {
-            return item.name === renderedSeller.toString()})[0]
+            return item.username === renderedSeller.toString()})[0]
 
         return (<FilteredItemsPage seller={seller} key={seller.userId}/>)
     }
@@ -94,7 +94,7 @@ class PageContent extends Component {
         <Route exact={true} path='/itemssold' render={this.renderItemsSold} />
 
         <Route exact={true} path='/itemdetails' render={this.renderItemDetails} />
-        <Route exact={true} path='/seller/:name' render={this.renderSeller}/>
+        <Route exact={true} path='/seller/:username' render={this.renderSeller}/>
         
         </div>
         )
