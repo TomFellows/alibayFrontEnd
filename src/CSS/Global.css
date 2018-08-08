@@ -141,7 +141,6 @@ font-size: 26pt;
   font-size: 30pt
 }
 
-<<<<<<< HEAD
 .itemHistory {
   margin: 60px;
 }
@@ -156,11 +155,10 @@ font-size: 26pt;
   margin: 30px;
   width: 50%
 }
-=======
+
 .searchbar{
   border-radius: 20px;
   font-size: 20pt;
   text-align: center;
   outline: none;
 }
->>>>>>> 02277178cc07cd45e82c9c79554752fba8b25c98
