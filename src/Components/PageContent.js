@@ -76,7 +76,11 @@ class PageContent extends Component {
         
         
         let seller = this.props.users.filter(item => {
+<<<<<<< HEAD
             return item.username === renderedSeller.toString()})[0]
+=======
+            return item.name === renderedSeller.toString()})[0]
+>>>>>>> 89be0743322a8c06654a5dfdf5181c4241746b76
 
         return (<FilteredItemsPage seller={seller} key={seller.userId}/>)
     }

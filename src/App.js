@@ -44,7 +44,7 @@ class App extends Component {
     this.logout = this.logout.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
 
-    this.state = {username: 'Anton', loggedIn: true}
+    this.state = {username: '', userId: '', loggedIn: false}
   }
 
   componentDidMount () {
@@ -73,7 +73,7 @@ class App extends Component {
 
   if (parsedBody.success === true) {
       
-      this.setState({username: username, loggedIn: true})
+      this.setState({username: username, userId: parsedBody.userId, loggedIn: true})
       
   } 
      return(parsedBody) //Returns the body object, with .success and .reason properties
@@ -124,13 +124,14 @@ class App extends Component {
       <BrowserRouter>
       <div>
       <Header 
-      username={this.state.username} 
+      username={this.state.username}
+      userId={this.state.userId} 
       loggedIn={this.state.loggedIn} 
       login={this.login} 
       logout={this.logout} 
       createAccount={this.createAccount}
       users={users}/>
-      <PageContent users={users}/>
+      <PageContent users={users} userId={this.state.userId} username={this.state.username} />
       
      
       </div>
