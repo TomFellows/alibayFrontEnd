@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../CSS/PopUpWindow.css'
 
 class ChangePassword extends Component {
 
@@ -11,14 +12,14 @@ class ChangePassword extends Component {
     }
     this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this)
     this.handleCurrentPasswordChange = this.handleCurrentPasswordChange.bind(this)
-    this.handlenewPasswordChange = this.handlenewPasswordChange.bind(this)
+    this.handleNewPasswordChange = this.handleNewPasswordChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleCurrentPasswordChange(event) {
     this.setState({currentPassword: event.target.value})
   }
-  handlenewPasswordChange(event) {
+  handleNewPasswordChange(event) {
     this.setState({newPassword: event.target.value})
   }
   handleConfirmPasswordChange(event) {
@@ -28,11 +29,15 @@ class ChangePassword extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    let bod = JSON.parse({
+    if (this.state.newPassword !== this.state.confirmPassword) {
+      alert('Password confirmation must match new password')
+    } else {
+
+    let bod = JSON.stringify({
       userId: this.props.userId,
       currentPassword: this.state.currentPassword,
-      newPassword: this.state.newPassword,
-      confirmPassword: this.state.confirmPassword
+      newPassword: this.state.newPassword
+      
     })
 
     fetch('/changePassword', {
@@ -45,21 +50,23 @@ class ChangePassword extends Component {
         let parsedBody = JSON.parse(responseBody)
 
         if(parsedBody.success === true) {
-          alert(this.parsedBody.response)
+          alert(parsedBody.response)
+          this.props.removeSelf()
         } else if(parsedBody.success === false) {
-          alert(this.parsedBody.response)
+          alert(parsedBody.response)
         }
       })
+    }
   }
 
    render () {
-       return (<div>
-          <h3> Change Password </h3>
-          <form onSubmit={this.handleSubmit}>
-          <div><div>Current Password:&nbsp; <input type='text' value={this.state.currentPassword} onChange={this.handleCurrentPasswordChange}/></div></div>
-          <div><div>New Passwod:&nbsp; <input type='text' value={this.state.newPassword} onChange={this.handleNewPasswordChange}/></div></div>
-          <div><div>Confirm New Password:&nbsp; <input type='text' value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/></div></div>
-          <input type="submit" />
+       return (<div className='login'>
+          <div className = "loginHeading">CHANGE PASSWORD</div>
+          <form className='usernamePassword' onSubmit={this.handleSubmit}>
+          <div className = "fields" ><input type='Password' className = "input" placeHolder="Current Password" value={this.state.currentPassword} onChange={this.handleCurrentPasswordChange}/></div><br/>
+          <div className = "fields" ><input type='Password' className = "input" placeHolder="New Password" value={this.state.newPassword} onChange={this.handleNewPasswordChange}/></div>
+          <div className = "fields" ><input type='Password' className = "input" placeHolder=" Confirm Password " value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/></div><br/>
+          <input className = "submitButton" type="submit" />
           </form> 
           </div>)
    }

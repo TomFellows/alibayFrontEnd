@@ -78,7 +78,7 @@ class PostAd extends Component {
 
   render() {
     return (<div className='login'>
-      <h3 className='loginHeading'> <br />Post an Ad: <br /><br /></h3>
+      <div className='loginHeading'>POST AN AD</div>
       <form onSubmit={this.handleSubmit} className='usernamePassword'> <br />
 
         <div className='fields'><input type='text' value={this.state.itemName} onChange={this.handleItemNameChange} placeholder="Item Name" className='input' /></div>
@@ -86,7 +86,7 @@ class PostAd extends Component {
         <div className='fields'><input type='text' value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.quantity} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
-        <br/><input className='uploadFile' type="file" onChange={file => uploadFile(file.target.files[0])} /> 
+        <br/>Upload picture: <br/><input className='uploadFile' type="file" onChange={file => uploadFile(file.target.files[0])} /> <br/>
 
         <br />
         <input className='submitButton' type='submit' />

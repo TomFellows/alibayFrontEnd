@@ -52,11 +52,11 @@ class CreateAccount extends Component {
 
     render () {
         return (<div className='login'>
-            <h3 className = "loginHeading"><br/>CREATE ACCOUNT<br/><br/> </h3>
+            <div className = "loginHeading">CREATE ACCOUNT</div>
             <form className='usernamePassword' onSubmit={this.handleSubmit}>
             <br/>
             <div>
-            <div className = "fields"> <input className = "input" placeholder = "Username" type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div>
+            <div className = "fields"> <input className = "input" placeholder = "Username" type='text' value={this.state.username} onChange={this.handleUsernameChange}/></div><br/>
             <div className = "fields"><input className = "input"  placeholder = "Password"  type='Password' value={this.state.password} onChange={this.handlePasswordChange}/></div>
             <div className = "fields"> <input className = "input" placeholder = "Confirm Password" type='Password' value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/></div>
             </div>

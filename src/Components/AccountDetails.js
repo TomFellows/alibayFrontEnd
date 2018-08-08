@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ChangePassword from './ChangePassword.js'
+import PopUpWindow from './PopUpWindow.js'
 
 import '../CSS/AccountDetails.css'
 
@@ -12,16 +14,14 @@ class AccountDetails extends Component {
         this.accountDetails = this.accountDetails.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.changePasswordPopUp = this.changePasswordPopUp.bind(this)
 
-        this.state = {userId: this.props.userId, address1: '', address2: '', city: '', stateProvRegion: '', zip: '', country: ''}
+        this.state = {popUp: false, userId: this.props.userId, address1: '', address2: '', city: '', stateProvRegion: '', zip: '', country: ''}
   
     }
 
     async componentDidMount() {
        this.accountDetails()
-
-       
-
     }
 
     async accountDetails () {
@@ -84,7 +84,23 @@ class AccountDetails extends Component {
 
     }
 
+    changePasswordPopUp(event) {
+        this.setState({popUp: event.target.value})
+    }
+
+    deletePopUp = () => {
+        this.setState({popUp: false})
+      }
+
     render () {
+
+        let popUp = ''
+
+        if (this.state.popUp === 'ChangePassword') {
+            popUp = (<PopUpWindow removeSelf={this.deletePopUp}>
+            <ChangePassword userId={this.state.userId} removeSelf={this.deletePopUp}/>
+            </PopUpWindow>)
+          }
 
 
         //TODO: Populate with the user infos
@@ -92,7 +108,7 @@ class AccountDetails extends Component {
             <h3>Account details :</h3>
             <br/>
             <h4>Username: {this.props.username}</h4>
-            <button>Change password</button>
+            <button value='ChangePassword' onClick={this.changePasswordPopUp}>Change password</button>
             <br/>
             <form id='address' onSubmit={this.handleSubmit}>
             <br/>
@@ -109,6 +125,7 @@ class AccountDetails extends Component {
             <input type='submit'/>
             
         </form>
+        {popUp}
         
         
 
