@@ -52,7 +52,7 @@ class AccountMenuBare extends Component {
         
 
         if (this.state.popUp === 'PostAd') {
-          popUp = (<PopUpWindow removeSelf={this.deletePopUp}><PostAd removeSelf={this.deletePopUp} /></PopUpWindow>)
+          popUp = (<PopUpWindow userId={this.props.userId} removeSelf={this.deletePopUp}><PostAd removeSelf={this.deletePopUp} /></PopUpWindow>)
         }
 
         let buttons
@@ -84,7 +84,6 @@ class AccountMenuBare extends Component {
         buttons = (<div className = "buttons">
                       <button className = "accountMenuButtons" onClick={this.popUp} value='Login'>Login</button>
                       <button className = "accountMenuButtons" onClick={this.popUp} value='CreateAccount'>Create Account</button>
-                      <button className = "accountMenuButtons" onClick={this.popUp} value='PostAd'>Post Ad</button>
                       
                       </div>)
         
