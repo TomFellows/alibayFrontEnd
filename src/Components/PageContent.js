@@ -51,7 +51,7 @@ class PageContent extends Component {
 
     renderAccountDetails () {
         return (<div>
-            <AccountDetails/>
+            <AccountDetails userId={this.props.userId} username={this.props.username}/>
             </div>)
 
     }
@@ -77,10 +77,7 @@ class PageContent extends Component {
         
         let seller = this.props.users.filter(item => {
             return item.name === renderedSeller.toString()})[0]
-       
 
-
-        
         return (<FilteredItemsPage seller={seller} key={seller.userId}/>)
     }
     
