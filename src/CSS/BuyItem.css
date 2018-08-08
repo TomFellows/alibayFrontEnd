@@ -1,7 +1,10 @@
-.buyitem {
+#buyitem {
     padding: 1em;
     line-height: 1;
-    text-align: left
+    text-align: left;
+    background-color: black;
+    font-size: 14pt
+    
 
 }
 
@@ -18,6 +21,16 @@ textarea {
     margin-bottom: 1em;
     resize: none;
     
+}
+
+.updateInfosButton {
+    position: absolute;
+    right: 2em;
+    text-align: right;
+}
+
+.purchaseInfo {
+    padding: 1em;
 }
 
 /*Each Text + input combo in the form*/

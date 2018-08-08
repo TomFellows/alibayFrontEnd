@@ -2,16 +2,9 @@ import React, { Component } from 'react';
 import PopUpWindow from './PopUpWindow.js'
 import BuyItem from './BuyItem.js'
 
+import '../CSS/ItemDetails.css'
 
-
-// Item Details Page
-// itemId: "g1234"
-// obj and seller are used for test purposes only
-let seller = {}
-
-let obj = {"success":true,
-            "seller": {"userName": "pradaLover"},
-            "item":{"itemId":"g1234","sellerId":"m123","itemName":"Harry Black","itemDescription":"Delightful","itemPrice":34.99,"numberRemaining":4,"itemImage":"./harryblack.png","keyword":"round"}}
+let seller = {};
 
 
 class itemDetails extends Component {
@@ -28,10 +21,11 @@ class itemDetails extends Component {
   }
   componentDidMount() {
     this.getItemInfo();
+    
   }
 
   getItemInfo() {
-    let bod = JSON.stringify({"itemId": "g1234"}) //JSON.stringify({itemId: this.props.itemId})
+    let bod = JSON.stringify({itemId: this.props.itemId}) 
 
     fetch('/itemDetails', {
       method: 'POST',
@@ -40,8 +34,8 @@ class itemDetails extends Component {
     })
     .then(x => x.text())
     .then(responseBody => {
-      let parsedBody = obj;
-      // JSON.parse(responseBody)
+      let parsedBody = JSON.parse(responseBody);
+      
       if(parsedBody.success === true) {
         let item = parsedBody.item
         seller = parsedBody.seller
@@ -92,37 +86,51 @@ class itemDetails extends Component {
   }
 
 
+  
 
 
   renderItems(item) {
 
     let popUp = ''
+    let buyButton =''
+
+    if (this.props.userId === '') {
+      buyButton= (<div style={{'font-weight': 'bold'}}>Log in to buy</div>)
+    } else {
+      buyButton = (<button className='buyNowButton' onClick={this.buyNow}> Buy now! </button>)
+
+    }
 
     if (this.state.popUp === 'BuyItem') {
       popUp = (<PopUpWindow removeSelf={this.deletePopUp}>
-      <BuyItem removeSelf={this.deletePopUp}/>
+      <BuyItem userId={this.props.userId} removeSelf={this.deletePopUp}/>
       </PopUpWindow>)
     }
+
 
     return (
       <div >
         <h3> {item.itemName} </h3>
         <div>
-          <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <img src={item.itemImage} style={{ height: "400px", width: "600px" }} alt={item.itemName} />
+          <div className='detailsBlock'>
+            <img src={item.itemImage} className='detailsImage' alt={item.itemName} />
 
             <div>
+              <div  className='detailsList'>
               <ul>
                 <li> {item.itemDescription} </li>
                 <li> {item.itemPrice} </li>
                 <li> Quantity remaining: {item.numberRemaining} </li>
-                <li> Seller: <span style={{ color: "green" }}> {item.sellerId} </span> </li>
                 <li> Style tags: {item.keyword} </li>
               </ul>
-              <button onClick={this.buyNow}> Buy now! </button>
+              {buyButton}
+              </div>
+              
               {popUp}
             </div>
+            
           </div>
+          
         </div>
 
       </div>
@@ -132,7 +140,7 @@ class itemDetails extends Component {
 
   render() {
     return (
-      <div >
+      <div className='details'>
         <h1> Item Details </h1>
         {this.renderItems(this.state.itemDetails)}
       </div>

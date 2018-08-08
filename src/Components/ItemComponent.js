@@ -1,40 +1,21 @@
 import React, { Component } from 'react';
 import ItemDetails from './ItemDetails.js';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../CSS/ItemComponent.css'
 
 class ItemComponent extends Component {
 
-  constructor() {
-    super()
-    // this.state = {
-      
-    //   }
-    // }
-    this.itemDetails = this.itemDetails.bind(this)
-
-  }
-
-  
-
-  itemDetails(event) {
-    event.preventDefault();
-
-    return (
-      <div>
-        <ItemDetails item={this.props.item} />
-      </div>
-    )
-  }
+ 
 
   
 
   render() {
     return (
       <div className='itemComponent'>
-      <div onClick={this.itemDetails} >
+      <Link to={'/itemdetails/' + this.props.item.itemId}>
+      <div>
         <img src={this.props.item.itemImage} className="img2"/>
-      </div>
+      </div></Link>
       <div className='itemName'> {this.props.item.itemName}</div>
       <div> Price: {this.props.item.itemPrice} </div> 
       </div>)
