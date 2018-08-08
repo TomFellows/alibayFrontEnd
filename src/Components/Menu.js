@@ -16,7 +16,7 @@ class Menu extends Component {
 
         let sellers = this.props.users.map(item => (<Link class="dropdown-item" to={'/seller/' + item.username}>{item.username}</Link>))
 
-
+        let brands = this.props.brands.map(item => (<Link class="dropdown-item" to={'/brand/' + item.brandName}>{item.brandName}</Link>))
 
         return (
             <div className = "menuBackground">
@@ -45,12 +45,10 @@ class Menu extends Component {
                     <div className = "menu">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            RayBan
+                            Brands
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            {brands}
                         </div>
                     </div>
                     </div>

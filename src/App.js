@@ -6,31 +6,34 @@ import Header from './Components/Header.js'
 let users = [
   {
     userId: 0,
-    username: 'Jacques 420',
-    items: [{itemId: 1, cost: 100, src: "/glasses1.png", color: "red"},
-    {itemId: 2, cost: 50, src: "/glasses2.png", color: "black"}]
+    username: 'Jacques420',
+    items: []
   },
   {
     userId: 1,
     username: 'Billy Mays',
-    items: [{itemId: 3, cost: 70, src: "/glasses3.png", color: "blue"},
-    {itemId: 4, cost: 130, src: "/glasses4.png", color: "blue"}]
+    items: []
   },
   {
     userId: 2,
     username: 'Leo Krupps',
-    items: [{itemId: 5, cost: 65, src: "/glasses5.png", color: "black"},
-    {itemId: 6, cost: 90, src: "/glasses6.png", color: "red"},
-    {itemId: 7, cost: 40, src: "/glasses7.png", color: "blue"}]
+    items: []
   },
   {
     userId: 3,
     username: 'Fanny Lechien',
-    items: [{itemId: 2, cost: 50, src: "/glasses2.png", color: "black"},
-    {itemId: 3, cost: 70, src: "/glasses3.png", color: "blue"},
-    {itemId: 4, cost: 130, src: "/glasses4.png", color: "blue"},
-    {itemId: 5, cost: 65, src: "/glasses5.png", color: "black"}]
+    items: []
   }
+]
+
+let brands = [
+  {brandName: "Prada"},
+  {brandName: "Michael Kors"},
+  {brandName: "Polette"}
+]
+
+let priceRanges = [
+
 ]
 
 
@@ -130,8 +133,9 @@ class App extends Component {
       login={this.login} 
       logout={this.logout} 
       createAccount={this.createAccount}
-      users={users}/>
-      <PageContent users={users} userId={this.state.userId} username={this.state.username} />
+      users={users}
+      brands={brands}/>
+      <PageContent users={users} userId={this.state.userId} username={this.state.username} brands={brands} />
       
      
       </div>

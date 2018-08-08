@@ -20,7 +20,7 @@ class Header extends Component {
         logout={this.props.logout} 
         createAccount={this.props.createAccount}
         className='accountMenu'/></div>
-        <Menu users={this.props.users}/>
+        <Menu users={this.props.users} brands={this.props.brands} />
         <Breadcrumb users={this.props.users}/>
 
 

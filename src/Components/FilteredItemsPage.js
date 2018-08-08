@@ -31,25 +31,50 @@ class FilteredItemsPage extends Component {
       
     }
 
-    componentDidMount() {
-      let body = JSON.stringify(this.props.seller)
-      fetch('/itemsBySeller', {
+  componentDidMount() {
+    this.populateItems();
+  }
+
+  populateItems() {
+    if(this.props.seller) {
+
+    let body = JSON.stringify(this.props.seller)
+
+    fetch('/itemsBySeller', {
+      method: 'POST',
+      body: body,
+      credentials: "same-origin"
+    })
+      .then(x => x.text())
+      .then(responseBody => {
+        let parsedBody = JSON.parse(responseBody)
+        this.setState({ items: parsedBody.itemsForSale })
+      });
+    } else if(this.props.brand) {
+
+      let body = JSON.stringify(this.props.brand)
+
+      fetch('/itemsByBrand', {
         method: 'POST',
         body: body,
         credentials: "same-origin"
-      }).then(x=>x.text())
-      .then(responseBody=>{
-        let parsedBody = JSON.parse(responseBody)
-        this.setState({items:parsedBody.itemsForSale})});
-      }
+      })
+        .then(x => x.text())
+        .then(responseBody => {
+          let parsedBody = JSON.parse(responseBody)
+          this.setState({items: parsedBody.itemsByBrand})
+        })
+
+    }
+  }
 
     colorSort(evt){
         evt.preventDefault();
         let someArr = this.state.items;
    
         someArr.sort(function(a, b){
-            if(a.color < b.color) return -1;
-            if(a.color > b.color) return 1;
+            if(a.itemColor < b.itemColor) return -1;
+            if(a.itemColor > b.itemColor) return 1;
             return 0;
         })
         this.setState({items: someArr})
@@ -74,24 +99,24 @@ class FilteredItemsPage extends Component {
       
   render() {
     let anArr = []
-    for(let i = 0; i < this.state.items.length; i++){
-      anArr = anArr.concat((<div className ="column">
-      <Image2  src = {this.state.items[i].itemImage}/>
+    // for(let i = 0; i < this.state.items.length; i++){
+    //   anArr = anArr.concat((<div className ="column">
+    //   <Image2  src = {this.state.items[i].itemImage}/>
       
-      <div>Price: {this.state.items[i].itemPrice}</div>
+    //   <div>Price: {this.state.items[i].itemPrice}</div>
       
-      </div>))
-    }
+    //   </div>))
+    // }
 
-    /*
+    
       for(let i = 0; i < this.state.items.length; i++) {
       anArr = anArr.concat((<div className="column">
-      <ItemComponent item={this.state.item[i]} /> 
-      <div> Price: {this.state.items[i].price} </div> 
+      <ItemComponent item={this.state.items[i]} /> 
+      <div> Price: {this.state.items[i].itemPrice} </div> 
       </div>))
       
     }
-    */
+    
 
     return ( 
       <div>

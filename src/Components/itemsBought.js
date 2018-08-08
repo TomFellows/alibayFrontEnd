@@ -39,7 +39,7 @@ class ItemsBought extends Component {
     this.getPurchaseInfo();
   }
   getPurchaseInfo() {
-    let bod = JSON.stringify({"userId": "r1234"}) //JSON.stringify({userId: this.props.userId})
+    let bod = JSON.stringify({"userId": "r1234"}) //JSON.stringify({userId: this.props.userName})
 
     fetch('/itemsBought', {
       method: 'POST',

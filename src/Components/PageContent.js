@@ -22,6 +22,7 @@ class PageContent extends Component {
         this.renderAccountDetails = this.renderAccountDetails.bind(this)
         this.renderItemDetails = this.renderItemDetails.bind(this)
         this.renderSeller = this.renderSeller.bind(this)
+        this.renderBrand = this.renderBrand.bind(this)
     }
 
     renderMainPage () {
@@ -81,6 +82,15 @@ class PageContent extends Component {
         return (<FilteredItemsPage seller={seller} key={seller.userId}/>)
     }
     
+    renderBrand(routerData) {
+
+        let renderedBrand = routerData.match.params.brandName
+
+        let brand = this.props.brands.filter(item => {
+            return item.brandName === renderedBrand.toString()})[0]
+        
+        return (<FilteredItemsPage brand={brand} />)
+    }
 
 
 
@@ -95,6 +105,7 @@ class PageContent extends Component {
 
         <Route exact={true} path='/itemdetails' render={this.renderItemDetails} />
         <Route exact={true} path='/seller/:username' render={this.renderSeller}/>
+        <Route exact={true} path='/brand/:brandName' render={this.renderBrand} />
         
         </div>
         )

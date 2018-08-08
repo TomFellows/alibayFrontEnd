@@ -6,12 +6,10 @@ class ItemComponent extends Component {
 
   constructor() {
     super()
-    this.state = {
-      item: {//this.props.item
-        itemImage: './harryblack.png',
-        itemName: 'Harry Black'
-      }
-    }
+    // this.state = {
+      
+    //   }
+    // }
     this.itemDetails = this.itemDetails.bind(this)
 
   }
@@ -32,8 +30,8 @@ class ItemComponent extends Component {
 
   render() {
     return (
-      <div onClick={this.itemDetails}>
-        <img src={this.state.item.itemImage} style={{'width':'400px'}}/>
+      <div onClick={this.itemDetails} >
+        <img src={this.props.item.itemImage} style={{'width':'400px'}} className="img2"/>
       </div>)
   }
 }
