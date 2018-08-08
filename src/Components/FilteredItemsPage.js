@@ -84,14 +84,14 @@ class FilteredItemsPage extends Component {
       
 
           let someArr = this.state.items
-          someArr.sort(function(a, b){return b.cost - a.cost});
+          someArr.sort(function(a, b){return b.itemPrice - a.itemPrice});
           this.setState({items: someArr})   
     }
 
     priceSortUp(evt){
       evt.preventDefault();
         let someArr = this.state.items
-        someArr.sort(function(a, b){return a.cost - b.cost});
+        someArr.sort(function(a, b){return a.itemPrice - b.itemPrice});
         this.setState({items: someArr})   
   }
       
