@@ -31,7 +31,7 @@ class ItemComponent extends Component {
   render() {
     return (
       <div onClick={this.itemDetails} >
-        <img src={this.props.item.itemImage} style={{'width':'400px'}} className="img2"/>
+        <img src={this.props.item.itemImage} className="img2"/>
       </div>)
   }
 }
