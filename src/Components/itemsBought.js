@@ -1,36 +1,11 @@
 import React, { Component } from 'react';
 
 
-
-// Items Bought
-// userId: "r1234"
-// obj is for test purposes only
-
-let obj = `{"success":true,
-            "itemsBought":[
-              {"itemId":"g1234",
-              "buyerId":"r1234",
-              "itemName":"Harry Black",
-              "itemDescription":"Delightful",
-              "itemPrice":34.99,
-              "numberRemaining":4,
-              "itemImage":"./harryblack.png",
-              "keyword":"round"}]}`
-
-
 class ItemsBought extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boughtArray: [
-        {"itemId":"g5678",
-        "buyerId":"r1234",
-        "itemName":"Dean Silver",
-        "itemDescription":"Smashing",
-        "itemPrice":34.99,
-        "numberRemaining":4,
-        "itemImage":"./deansilver.png",
-        "keyword":"round"}]
+      boughtArray: []
     }
     
     this.getPurchaseInfo = this.getPurchaseInfo.bind(this)
@@ -39,7 +14,7 @@ class ItemsBought extends Component {
     this.getPurchaseInfo();
   }
   getPurchaseInfo() {
-    let bod = JSON.stringify({"userId": "r1234"}) //JSON.stringify({userId: this.props.userName})
+    let bod = JSON.stringify({"userId": this.props.userId}) 
 
     fetch('/itemsBought', {
       method: 'POST',
@@ -48,7 +23,7 @@ class ItemsBought extends Component {
     })
     .then(x => x.text())
     .then(responseBody => {
-      let parsedBody = JSON.parse(obj) //JSON.parse(responseBody)
+      let parsedBody = JSON.parse(responseBody)
       if(parsedBody.success === true) {
         let items = parsedBody.itemsBought
         let temp = this.state.boughtArray.concat(items)
@@ -60,16 +35,17 @@ class ItemsBought extends Component {
 
   renderItems(item) {
     return (
-      <div >
-        <h3> {item.itemName} </h3>
-        <div style={{display:"flex"}}>
-          <img src={item.itemImage} style={{height: "400px", width: "600px"}} alt={item.itemName} />
+      <div className="itemHistory"> 
+        <h3> Transaction date: {item.transactionDate} </h3>
+        <div className="itemHistoryDiv">
+          <img src={item.item.itemImage} style={{height: "400px", width: "600px"}} alt={item.item.itemName} className="itemHistoryContent" />
         
-          <div>
-            <h3> Item Details </h3>
-            <ul>
-              <li> {item.itemDescription} </li>
-              <li> {item.itemPrice} </li>
+          <div className="itemHistoryContent">
+            <h3> {item.item.itemName} </h3>
+            <ul><h6>Item Details</h6>
+              <li className="itemDescription"> {item.item.itemDescription} </li>
+              <li> {item.item.itemPrice} </li>
+              
             </ul>
           </div>
         </div>
@@ -81,7 +57,7 @@ class ItemsBought extends Component {
   render() {
     return (
       <div >
-        <h1> Purchase History </h1>
+        <h1> {this.props.username}'s Purchase History </h1>
         {this.state.boughtArray.map( (x) => {
           return this.renderItems(x)})}
       </div>
