@@ -86,10 +86,10 @@ class PostAd extends Component {
   render() {
     return (<div className='login'>
       <div className='loginHeading'>POST AN AD</div>
-      <form onSubmit={this.handleSubmit} className='usernamePassword' id='postAd'> <br />
+      <form onSubmit={this.handleSubmit} className='usernamePassword'>
 
         <div className='fields'><input type='text' value={this.state.itemName} onChange={this.handleItemNameChange} placeholder="Item Name" className='input' /></div>
-        <div className='fields'><textarea rows='3' value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Description" className='input' form='postAd'/></div>
+        <div className='fields'><textarea rows='3' value={this.state.description} onChange={this.handleDescriptionChange} placeholder="Description" className='input'/></div>
         <div className='fields'><input type='text' value={this.state.price} onChange={this.handlePriceChange} placeholder="Price" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.quantity} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
@@ -97,8 +97,10 @@ class PostAd extends Component {
 
         <br />
         <input className='submitButton' type='submit' />
-        <br /><br />
+        <br />
       </form></div>)
+
+
   }
 }
 
