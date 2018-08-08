@@ -6,26 +6,26 @@ import Header from './Components/Header.js'
 let users = [
   {
     userId: 0,
-    name: 'Jacques 420',
+    username: 'Jacques 420',
     items: [{itemId: 1, cost: 100, src: "/glasses1.png", color: "red"},
     {itemId: 2, cost: 50, src: "/glasses2.png", color: "black"}]
   },
   {
     userId: 1,
-    name: 'Billy Mays',
+    username: 'Billy Mays',
     items: [{itemId: 3, cost: 70, src: "/glasses3.png", color: "blue"},
     {itemId: 4, cost: 130, src: "/glasses4.png", color: "blue"}]
   },
   {
     userId: 2,
-    name: 'Leo Krupps',
+    username: 'Leo Krupps',
     items: [{itemId: 5, cost: 65, src: "/glasses5.png", color: "black"},
     {itemId: 6, cost: 90, src: "/glasses6.png", color: "red"},
     {itemId: 7, cost: 40, src: "/glasses7.png", color: "blue"}]
   },
   {
     userId: 3,
-    name: 'Fanny Lechien',
+    username: 'Fanny Lechien',
     items: [{itemId: 2, cost: 50, src: "/glasses2.png", color: "black"},
     {itemId: 3, cost: 70, src: "/glasses3.png", color: "blue"},
     {itemId: 4, cost: 130, src: "/glasses4.png", color: "blue"},
