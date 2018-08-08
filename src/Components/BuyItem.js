@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Payment from './Payment.js'
 
 import '../CSS/BuyItem.css'
 
@@ -27,7 +28,10 @@ class BuyItem extends Component {
 
             <input type='submit'/>
             
-        </form></div>)
+            
+        </form>
+        <Payment name="Spectacle"/>
+        </div>)
     }
 }
 
