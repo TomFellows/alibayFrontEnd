@@ -41,8 +41,7 @@ class Menu extends Component {
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             {sellers}
-                            <Link class="dropdown-item" to='/items'>Filtered Items</Link>
-                            <Link class="dropdown-item" to='/itemdetails'>Item details</Link>
+                            
                         </div>
                     </div>
                     </div>

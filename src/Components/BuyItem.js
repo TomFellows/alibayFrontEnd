@@ -104,7 +104,9 @@ class BuyItem extends Component {
    
         </form>
         <br />
-        <Payment name="Spectacle"/>
+        <div onClick={this.props.removeSelf}>
+        <Payment  name="Spectacle"/>
+        </div>
         </div>)
     }
 }

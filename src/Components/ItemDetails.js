@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PopUpWindow from './PopUpWindow.js'
 import BuyItem from './BuyItem.js'
 
+import {withRouter} from 'react-router'
+
 import '../CSS/ItemDetails.css'
 
 let seller = {};
 
 
-class itemDetails extends Component {
+class itemDetailsBare extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,6 +50,7 @@ class itemDetails extends Component {
 
   deletePopUp = () => {
     this.setState({popUp: false})
+    //this.props.history.push('/refresh/' + this.props.location.pathname)
   }
 
   buyNow(){
@@ -55,11 +58,12 @@ class itemDetails extends Component {
     this.setState({popUp: 'BuyItem'})
 
     // Bring up payment option, need to watch video guide
-    /*let bod = JSON.stringify({"itemdID": "g1234", "userId": "o40r9k"})
+    let bod = JSON.stringify({itemId: this.props.itemId, userId: this.props.userId})
     
     fetch('/buyItem', {
       method: 'POST',
-      body: bod
+      body: bod,
+      credentials: 'same-origin'
     })
       .then(x => x.text())
       .then(responseBody => {
@@ -69,20 +73,9 @@ class itemDetails extends Component {
         }
         }
       )
-      .then( fetch('/sellItem', {
-        method: 'POST',
-        body: bod
-      })
-        .then(x => x.text())
-        .then(responseBody => {
-          let parsedBody = JSON.parse(responseBody)
-          if(parsedBody.success === true){
-            return (<div> Enjoy your purchase! </div>)
-          }
-        }
-        )
+        
    
-      )*/
+      
   }
 
 
@@ -147,6 +140,8 @@ class itemDetails extends Component {
     );
   }
 }
+
+let itemDetails = withRouter(itemDetailsBare)
 
 export default itemDetails;
 
