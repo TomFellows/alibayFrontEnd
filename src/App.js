@@ -33,6 +33,9 @@ let brands = [
 ]
 
 let priceRanges = [
+  {lowerLimit: 1, upperLimit: 100},
+  {lowerLimit: 100, upperLimit: 200},
+  {lowerLimit: 200, upperLimit: 10000}
 
 ]
 
@@ -134,8 +137,9 @@ class App extends Component {
       logout={this.logout} 
       createAccount={this.createAccount}
       users={users}
-      brands={brands}/>
-      <PageContent users={users} userId={this.state.userId} username={this.state.username} brands={brands} />
+      brands={brands}
+      priceRanges={priceRanges}/>
+      <PageContent users={users} userId={this.state.userId} username={this.state.username} brands={brands} priceRanges={priceRanges}/>
       
      
       </div>

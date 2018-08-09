@@ -15,10 +15,10 @@
 }
 
 .detailsList {
-    font-size: 14pt;
+    font-size: 20pt;
     padding: 1em;
     display: inline-block;
-    width: 600px
+    max-width: 40vw;
 }
 
 .buyNowButton {
@@ -29,4 +29,8 @@
     border-radius: 20px;
     margin: 1em;
 
+}
+.buyNowButton:hover{
+    color: white;
+    background-color: black;
 }

@@ -25,6 +25,7 @@ class PageContent extends Component {
         this.renderBrand = this.renderBrand.bind(this)
         this.renderItemsBought = this.renderItemsBought.bind(this)
         this.renderItemsSold = this.renderItemsSold.bind(this)
+        this.renderPriceRange = this.renderPriceRange.bind(this)
     }
 
     renderMainPage () {
@@ -97,6 +98,15 @@ class PageContent extends Component {
         return (<FilteredItemsPage brand={brand} />)
     }
 
+    renderPriceRange(routerData) {
+        let renderedPriceRange = routerData.match.params.price
+
+        let price = this.props.priceRanges.filter(item => {
+            return item.lowerLimit.toString() === renderedPriceRange.toString()})[0]
+        
+        return (<FilteredItemsPage price={price} />)
+
+    }
       
   
 
@@ -114,6 +124,7 @@ class PageContent extends Component {
         <Route exact={true} path='/itemdetails/:itemId' render={this.renderItemDetails} />
         <Route exact={true} path='/seller/:username' render={this.renderSeller}/>
         <Route exact={true} path='/brand/:brandName' render={this.renderBrand} />
+        <Route exact={true} path='/pricerange/:price' render={this.renderPriceRange} />
 
         
         </div>

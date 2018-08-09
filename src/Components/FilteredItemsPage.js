@@ -65,6 +65,19 @@ class FilteredItemsPage extends Component {
           this.setState({items: parsedBody.itemsByBrand})
         })
 
+    }else if(this.props.price) {
+      let body = JSON.stringify(this.props.price)
+
+      fetch('/itemsByPrice', {
+        method: 'POST',
+        body: body,
+        credentials: "same-origin"
+      })
+        .then(x => x.text())
+        .then(responseBody => {
+          let parsedBody = JSON.parse(responseBody)
+          this.setState({items: parsedBody.itemsByPrice})
+        })
     }
   }
 
