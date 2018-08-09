@@ -71,7 +71,7 @@ class Menu extends Component {
                     
                     <div className = "menu">
                     <input className = "searchbar" type = "search" placeholder = "Search..."/>
-                    <button className = "searchbutton" onClick = {this.search}>GO</button>
+                    
                     </div>
                   
 
