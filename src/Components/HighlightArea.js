@@ -6,29 +6,63 @@ import ItemComponent from './ItemComponent.js'
 class HighlightArea extends Component {
     constructor(props){
         super(props)
-        this.state = {items: [{itemId: 1, cost: 100, src: "/glasses1.png"},
-        {itemId: 2, cost: 50, src: "/glasses2.png"},
-        {itemId: 3, cost: 70, src: "/glasses3.png"},
-        {itemId: 4, cost: 130, src: "/glasses4.png"}]}
+        this.state = {
+          items: []
+        }
        
+      this.populateItems = this.populateItems.bind(this)
     }
-    
+  componentDidMount() {
+    this.populateItems()
+  }
+
+  populateItems() {
+    let body = JSON.stringify({username: "Jacques420"})
+
+    fetch('/itemsBySeller', {
+      method: 'POST',
+      body: body,
+      credentials: "same-origin"
+    })
+      .then(x => x.text())
+      .then(responseBody => {
+        let parsedBody = JSON.parse(responseBody)
+        let temp = this.state.items.concat(parsedBody.itemsForSale[0])
+        temp = temp.concat(parsedBody.itemsForSale[4])
+        temp = temp.concat(parsedBody.itemsForSale[2])
+        this.setState({ items: temp })
+      });
+  }
+  
+
+
   render() {
     return ( 
-      
+      <div> <h1 className="highlightHeading">Newest Additions</h1>
       <div className = "parentOfColumns">
       
-        <div className ="column">
-        <Image src = {this.state.items[0].src}/> 
+        {this.state.items.map(x => {
+          return (
+
+            <div className="column">
+              <ItemComponent item={x} />
+            </div>
+
+          )
+        })}
+        </div>
+
+        {/* <div className ="column">
+        <ItemComponent item={this.state.items[0]}/> 
         </div>
 
         <div className="column">
-        <Image src = {this.state.items[1].src}/> 
+        <ItemComponent item={this.state.items[1]}/> 
         </div>
    
         <div className="column">
-        <Image src = {this.state.items[2].src}/>
-        </div>
+        <ItemComponent item={this.state.items[2]}/>
+        </div> */}
 
       </div>
       /*
