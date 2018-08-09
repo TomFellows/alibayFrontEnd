@@ -9,7 +9,10 @@ class Menu extends Component {
     constructor(props) {
         super(props)
     }
-
+    search(evt){
+        evt.preventDefault();
+        
+    }
 
 
     render() {
@@ -81,9 +84,9 @@ class Menu extends Component {
                     </div>
                     <div className = "menu">
                     <input className = "searchbar" type = "search" placeholder = "Search..."/>
+                    <button className = "searchbutton" onClick = {this.search}>GO</button>
                     </div>
-                
-
+                  
 
 
                 </div>

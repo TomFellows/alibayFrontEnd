@@ -97,6 +97,9 @@ class PageContent extends Component {
         return (<FilteredItemsPage brand={brand} />)
     }
 
+      
+  
+
 
 
     render () {
@@ -111,6 +114,7 @@ class PageContent extends Component {
         <Route exact={true} path='/itemdetails/:itemId' render={this.renderItemDetails} />
         <Route exact={true} path='/seller/:username' render={this.renderSeller}/>
         <Route exact={true} path='/brand/:brandName' render={this.renderBrand} />
+
         
         </div>
         )
