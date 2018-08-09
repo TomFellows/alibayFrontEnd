@@ -25,6 +25,7 @@ class PageContent extends Component {
         this.renderBrand = this.renderBrand.bind(this)
         this.renderItemsBought = this.renderItemsBought.bind(this)
         this.renderItemsSold = this.renderItemsSold.bind(this)
+        this.renderPriceRange = this.renderPriceRange.bind(this)
     }
 
     renderMainPage () {
@@ -45,9 +46,12 @@ class PageContent extends Component {
 
     }
 
-    renderItemDetails () {
+    renderItemDetails (routerData) {
+
+        let renderedItemId = routerData.match.params.itemId
+        
         return (<div>
-            <ItemDetails/>
+            <ItemDetails userId={this.props.userId} itemId={renderedItemId}/>
             </div>)
 
     }
@@ -91,8 +95,20 @@ class PageContent extends Component {
         let brand = this.props.brands.filter(item => {
             return item.brandName === renderedBrand.toString()})[0]
         
-        return (<FilteredItemsPage brand={brand} />)
+        return (<FilteredItemsPage brand={brand} key={renderedBrand}/>)
     }
+
+    renderPriceRange(routerData) {
+        let renderedPriceRange = routerData.match.params.price
+
+        let price = this.props.priceRanges.filter(item => {
+            return item.lowerLimit.toString() === renderedPriceRange.toString()})[0]
+        
+        return (<FilteredItemsPage price={price} key={renderedPriceRange}/>)
+
+    }
+      
+  
 
 
 
@@ -105,9 +121,11 @@ class PageContent extends Component {
         <Route exact={true} path='/itemsbought' render={this.renderItemsBought} />
         <Route exact={true} path='/itemssold' render={this.renderItemsSold} />
 
-        <Route exact={true} path='/itemdetails' render={this.renderItemDetails} />
+        <Route exact={true} path='/itemdetails/:itemId' render={this.renderItemDetails} />
         <Route exact={true} path='/seller/:username' render={this.renderSeller}/>
         <Route exact={true} path='/brand/:brandName' render={this.renderBrand} />
+        <Route exact={true} path='/pricerange/:price' render={this.renderPriceRange} />
+
         
         </div>
         )

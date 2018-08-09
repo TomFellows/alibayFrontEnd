@@ -8,7 +8,7 @@ class PostAd extends Component {
 
   constructor () {
     super()
-    this.state = {itemName: '', itemDescription: '', itemPrice: 1, numberRemaining: '', keywords: '', itemImage: '', itemColor: ''}
+    this.state = {itemName: '', itemDescription: '', itemPrice: '', numberRemaining: '', keywords: '', itemImage: '', itemColor: ''}
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
@@ -59,6 +59,8 @@ class PostAd extends Component {
 
    handleSubmit(event) {
      event.preventDefault()
+
+     
      
      let bod = JSON.stringify({item: {
        itemName: this.state.itemName,
@@ -96,7 +98,7 @@ class PostAd extends Component {
         <div className='fields'><input type='text' value={this.state.itemName} onChange={this.handleItemNameChange} placeholder="Item Name" className='input' /></div>
         <div className='fields'><textarea rows='3' value={this.state.itemDescription} onChange={this.handleDescriptionChange} placeholder="Description" className='input'/></div>
         <div className='fields'><input type='number' value={this.state.itemPrice} onChange={this.handlePriceChange} placeholder="Price" className='input' /></div>
-        <div className='fields'><input type='text' value={this.state.numberRemaining} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
+        <div className='fields'><input type='number' value={this.state.numberRemaining} onChange={this.handleQuantityChange} placeholder="Quantity" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.itemColor} onChange={this.handleColorChange} placeholder="Color" className='input' /></div>
         <div className='fields'><input type='text' value={this.state.keywords} onChange={this.handleKeywordsChange} placeholder="Keywords" className='input' /></div>
         <br/>Upload picture: <br/><input className='uploadFile' type="file" onChange={file => this.uploadFile(file.target.files[0])} /> <br/>
