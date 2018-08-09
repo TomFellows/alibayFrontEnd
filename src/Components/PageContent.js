@@ -95,7 +95,7 @@ class PageContent extends Component {
         let brand = this.props.brands.filter(item => {
             return item.brandName === renderedBrand.toString()})[0]
         
-        return (<FilteredItemsPage brand={brand} />)
+        return (<FilteredItemsPage brand={brand} key={renderedBrand}/>)
     }
 
     renderPriceRange(routerData) {
@@ -104,7 +104,7 @@ class PageContent extends Component {
         let price = this.props.priceRanges.filter(item => {
             return item.lowerLimit.toString() === renderedPriceRange.toString()})[0]
         
-        return (<FilteredItemsPage price={price} />)
+        return (<FilteredItemsPage price={price} key={renderedPriceRange}/>)
 
     }
       
