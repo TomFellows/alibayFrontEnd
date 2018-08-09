@@ -104,6 +104,10 @@ class itemDetailsBare extends Component {
       </PopUpWindow>)
     }
 
+    let stylesKeywords
+    if (item.keywords) {
+    stylesKeywords = item.keywords.join(', ')
+    }
 
     return (
       <div >
@@ -118,7 +122,8 @@ class itemDetailsBare extends Component {
                 <li> {item.itemDescription} </li>
                 <li> {item.itemPrice} </li>
                 <li> Quantity remaining: {item.numberRemaining} </li>
-                <li> Style tags: {item.keyword} </li>
+                <li> Style tags:  {stylesKeywords}</li>
+                {/* })} </li> */}
               </ul>
               {buyButton}
               </div>
