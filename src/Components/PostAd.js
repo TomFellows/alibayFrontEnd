@@ -59,6 +59,8 @@ class PostAd extends Component {
 
    handleSubmit(event) {
      event.preventDefault()
+
+     
      
      let bod = JSON.stringify({item: {
        itemName: this.state.itemName,
