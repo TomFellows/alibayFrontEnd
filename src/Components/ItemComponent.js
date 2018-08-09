@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ItemDetails from './ItemDetails.js';
 import { Link } from 'react-router-dom'
 import '../CSS/ItemComponent.css'
+import '../CSS/Global.css';
 
 class ItemComponent extends Component {
 

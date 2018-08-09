@@ -23,6 +23,8 @@ class PageContent extends Component {
         this.renderItemDetails = this.renderItemDetails.bind(this)
         this.renderSeller = this.renderSeller.bind(this)
         this.renderBrand = this.renderBrand.bind(this)
+        this.renderItemsBought = this.renderItemsBought.bind(this)
+        this.renderItemsSold = this.renderItemsSold.bind(this)
     }
 
     renderMainPage () {
@@ -62,14 +64,14 @@ class PageContent extends Component {
 
     renderItemsBought () {
         return (<div>
-            <ItemsBought/>
+            <ItemsBought userId={this.props.userId} username={this.props.username} />
             </div>)
 
     }
 
     renderItemsSold () {
         return (<div>
-            <ItemsSold/>
+            <ItemsSold userId={this.props.userId} username={this.props.username} />
             </div>)
 
     }
