@@ -76,7 +76,7 @@ class App extends Component {
 
   let parsedBody = JSON.parse(response)
 
-  alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
+ // alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
 
   if (parsedBody.success === true) {
       
@@ -99,7 +99,7 @@ class App extends Component {
     
       let parsedBody = JSON.parse(response)
 
-      alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
+      //alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
 
      if (parsedBody.success === true) { 
     
@@ -120,7 +120,7 @@ class App extends Component {
 
     let parsedBody = JSON.parse(response)
 
-    alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
+    //alert('Success: ' + parsedBody.success + ' Reason: ' + parsedBody.response)
     
     return(parsedBody) //Returns the body object, with .success and .reason properties
   }

@@ -79,7 +79,7 @@ class BuyItem extends Component {
 
         response = await response.text()
 
-        alert(JSON.parse(response).response)
+        //alert(JSON.parse(response).response)
 
 
     }

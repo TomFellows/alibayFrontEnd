@@ -81,9 +81,9 @@ class PostAd extends Component {
        let parsedBody = JSON.parse(responseBody)
 
        if(parsedBody.success === false) {
-         alert(parsedBody.response)
+        // alert(parsedBody.response)
        } else if(parsedBody.success === true) {
-         alert(parsedBody.response)
+        // alert(parsedBody.response)
 
          this.props.removeSelf()
        }
