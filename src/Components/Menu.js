@@ -21,6 +21,8 @@ class Menu extends Component {
 
         let brands = this.props.brands.map(item => (<Link class="dropdown-item" to={'/brand/' + item.brandName}>{item.brandName}</Link>))
 
+        let priceRanges = this.props.priceRanges.map(item => (<Link class="dropdown-item" to={'/pricerange/' + item.lowerLimit}> {item.lowerLimit} to {item.upperLimit} </Link>))
+
         return (
             <div className = "menuBackground">
 
@@ -58,30 +60,15 @@ class Menu extends Component {
                     <div className = "menu">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Prada
+                            Price
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            {priceRanges}
                         </div>
                     </div>
                     </div>
 
-                    <div className = "menu">
-                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Lacoste
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-                   
-
-                    </div>
+                    
                     <div className = "menu">
                     <input className = "searchbar" type = "search" placeholder = "Search..."/>
                     <button className = "searchbutton" onClick = {this.search}>GO</button>
