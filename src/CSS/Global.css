@@ -147,3 +147,10 @@ font-size: 26pt;
   text-align: center;
   outline: none;
 }
+
+.searchbutton{
+font-size: 20pt;
+background-color: green;
+color: white;
+border-radius: 20px;
+}
