@@ -50,7 +50,8 @@ class itemDetailsBare extends Component {
 
   deletePopUp = () => {
     this.setState({popUp: false})
-    //this.props.history.push('/refresh/' + this.props.location.pathname)
+    this.getItemInfo();
+    
   }
 
   buyNow(){
@@ -90,8 +91,11 @@ class itemDetailsBare extends Component {
     if (this.props.userId === '') {
       buyButton= (<div style={{'font-weight': 'bold'}}>Log in to buy</div>)
     } else {
+      if (item.numberRemaining > 0) {
       buyButton = (<button className='buyNowButton' onClick={this.buyNow}> Buy now! </button>)
-
+      } else {
+      buyButton=(<div style={{'font-weight': 'bold'}}>Item is sold out</div>)
+      } 
     }
 
     if (this.state.popUp === 'BuyItem') {

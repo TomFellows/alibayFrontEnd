@@ -99,7 +99,7 @@ class App extends Component {
 
      if (parsedBody.success === true) { 
     
-      this.setState({username: '', loggedIn: false})
+      this.setState({username: '', userId: '', loggedIn: false})
       }
   }
 
